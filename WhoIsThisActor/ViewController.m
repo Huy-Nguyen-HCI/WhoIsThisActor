@@ -7,21 +7,78 @@
 //
 
 #import "ViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <CommonCrypto/CommonDigest.h>
 
-@interface ViewController ()
+#import <QuartzCore/QuartzCore.h>
 
+
+
+@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.imageView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.imageView.layer.borderWidth = 1;
+}
+- (IBAction)selectPicture:(UIButton *)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)takePicture:(UIButton *)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];}
+
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    if (!image) image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    
+    self.imageView.image = image;
+    [self dismissImagePicker];
 }
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissImagePicker];
+}
+
+- (void)dismissImagePicker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)submit:(UIButton *)sender
+{
+    
+}
+
+
+
+
+
+
+
 
 @end

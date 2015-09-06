@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,75 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m4L-vd-mWm">
+                                <rect key="frame" x="16" y="28" width="568" height="429"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7E-cz-DO4">
+                                <rect key="frame" x="234" y="547" width="133" height="33"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="qrh-m8-1Li"/>
+                                </constraints>
+                                <state key="normal" title="Select photo">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPicture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gpb-J3-rde"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5s-Gu-aRL">
+                                <rect key="frame" x="234" y="506" width="133" height="33"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="OYx-tC-bPX"/>
+                                </constraints>
+                                <state key="normal" title="Take photo">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePicture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="I7w-oF-SNe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-ws-y55">
+                                <rect key="frame" x="234" y="465" width="133" height="33"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="aud-rQ-3dG"/>
+                                    <constraint firstAttribute="width" constant="133" id="myu-ol-fgg"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bte-ws-y55" firstAttribute="trailing" secondItem="e5s-Gu-aRL" secondAttribute="trailing" id="CtP-tf-NKP"/>
+                            <constraint firstAttribute="bottom" secondItem="h7E-cz-DO4" secondAttribute="bottom" constant="20" symbolic="YES" id="FmQ-3w-UeH"/>
+                            <constraint firstItem="h7E-cz-DO4" firstAttribute="top" secondItem="e5s-Gu-aRL" secondAttribute="bottom" constant="8" symbolic="YES" id="IK2-91-Swf"/>
+                            <constraint firstItem="m4L-vd-mWm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="NT9-SL-VHS"/>
+                            <constraint firstItem="Bte-ws-y55" firstAttribute="leading" secondItem="e5s-Gu-aRL" secondAttribute="leading" id="UkS-3N-H1F"/>
+                            <constraint firstItem="m4L-vd-mWm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="YbP-hO-JHo"/>
+                            <constraint firstItem="e5s-Gu-aRL" firstAttribute="top" secondItem="Bte-ws-y55" secondAttribute="bottom" constant="8" symbolic="YES" id="ZsI-LT-jtf"/>
+                            <constraint firstItem="m4L-vd-mWm" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="biZ-cT-4RR"/>
+                            <constraint firstItem="h7E-cz-DO4" firstAttribute="leading" secondItem="e5s-Gu-aRL" secondAttribute="leading" id="cbh-9u-OWx"/>
+                            <constraint firstItem="m4L-vd-mWm" firstAttribute="centerX" secondItem="Bte-ws-y55" secondAttribute="centerX" id="jFi-Op-0VH"/>
+                            <constraint firstItem="Bte-ws-y55" firstAttribute="top" secondItem="m4L-vd-mWm" secondAttribute="bottom" constant="8" symbolic="YES" id="tbc-9j-5jD"/>
+                            <constraint firstItem="e5s-Gu-aRL" firstAttribute="trailing" secondItem="h7E-cz-DO4" secondAttribute="trailing" id="wX8-9E-iv9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="m4L-vd-mWm" id="7tI-YM-JuG"/>
+                        <outlet property="takePhotoButton" destination="e5s-Gu-aRL" id="FgQ-lG-PZU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="381" y="299"/>
         </scene>
     </scenes>
 </document>

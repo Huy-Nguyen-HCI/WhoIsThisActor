@@ -81,13 +81,9 @@
 		003E501B1B9C122F005C5426 /* WhoIsThisActor */ = {
 			isa = PBXGroup;
 			children = (
-				003E50201B9C122F005C5426 /* AppDelegate.h */,
-				003E50211B9C122F005C5426 /* AppDelegate.m */,
 				003E50231B9C122F005C5426 /* ViewController.h */,
 				003E50241B9C122F005C5426 /* ViewController.m */,
 				003E50261B9C122F005C5426 /* Main.storyboard */,
-				003E50291B9C122F005C5426 /* Images.xcassets */,
-				003E502B1B9C122F005C5426 /* LaunchScreen.xib */,
 				003E501C1B9C122F005C5426 /* Supporting Files */,
 			);
 			path = WhoIsThisActor;
@@ -96,6 +92,10 @@
 		003E501C1B9C122F005C5426 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				003E50291B9C122F005C5426 /* Images.xcassets */,
+				003E50201B9C122F005C5426 /* AppDelegate.h */,
+				003E502B1B9C122F005C5426 /* LaunchScreen.xib */,
+				003E50211B9C122F005C5426 /* AppDelegate.m */,
 				003E501D1B9C122F005C5426 /* Info.plist */,
 				003E501E1B9C122F005C5426 /* main.m */,
 			);
@@ -416,6 +416,7 @@
 				003E503E1B9C122F005C5426 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		003E503F1B9C122F005C5426 /* Build configuration list for PBXNativeTarget "WhoIsThisActorTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +425,7 @@
 				003E50411B9C122F005C5426 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
