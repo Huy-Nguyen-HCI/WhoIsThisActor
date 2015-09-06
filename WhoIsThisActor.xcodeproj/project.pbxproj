@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001B71461B9CD34200F7290B /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B71451B9CD34200F7290B /* ResultViewController.m */; };
 		003E501F1B9C122F005C5426 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E501E1B9C122F005C5426 /* main.m */; };
 		003E50221B9C122F005C5426 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50211B9C122F005C5426 /* AppDelegate.m */; };
 		003E50251B9C122F005C5426 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50241B9C122F005C5426 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001B71441B9CD34200F7290B /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		001B71451B9CD34200F7290B /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		003E50191B9C122F005C5426 /* WhoIsThisActor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoIsThisActor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		003E501D1B9C122F005C5426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003E501E1B9C122F005C5426 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				003E50241B9C122F005C5426 /* ViewController.m */,
 				003E50261B9C122F005C5426 /* Main.storyboard */,
 				003E501C1B9C122F005C5426 /* Supporting Files */,
+				001B71441B9CD34200F7290B /* ResultViewController.h */,
+				001B71451B9CD34200F7290B /* ResultViewController.m */,
 			);
 			path = WhoIsThisActor;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				003E50251B9C122F005C5426 /* ViewController.m in Sources */,
 				003E50221B9C122F005C5426 /* AppDelegate.m in Sources */,
 				003E501F1B9C122F005C5426 /* main.m in Sources */,
+				001B71461B9CD34200F7290B /* ResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

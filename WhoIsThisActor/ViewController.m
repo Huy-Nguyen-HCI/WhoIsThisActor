@@ -69,9 +69,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)submit:(UIButton *)sender
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    
+    if ([identifier isEqualToString:@"Show result"]){
+        if (!self.imageView.image){
+            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Image not found" message:@"You need to take or select a photo" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+            [alert show];
+            return NO;
+        }
+
+    }
+    return YES;
 }
 
 
