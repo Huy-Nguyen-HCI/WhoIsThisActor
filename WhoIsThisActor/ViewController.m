@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <CommonCrypto/CommonDigest.h>
-
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -74,38 +73,55 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     
     
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    float actualHeight = self.imageView.image.size.height;
+    float actualWidth = self.imageView.image.size.width;
+    float imgRatio = actualWidth/actualHeight;
+    float maxRatio = 320.0/480.0;
+    
+    if(imgRatio!=maxRatio){
+        if(imgRatio < maxRatio){
+            imgRatio = 480.0 / actualHeight;
+            actualWidth = imgRatio * actualWidth;
+            actualHeight = 480.0;
+        }
+        else{
+            imgRatio = 320.0 / actualWidth;
+            actualHeight = imgRatio * actualHeight;
+            actualWidth = 320.0;
+        }
+    }
+    CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
+    UIGraphicsBeginImageContext(rect.size);
+    [self.imageView.image drawInRect:rect];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    // COnvert Image to NSData
+    NSData *dataImage = UIImageJPEGRepresentation(img, 1.0f);
+    
+    // set your URL Where to Upload Image
+    NSString *urlString = @"http://access.alchemyapi.com/calls/image/ImageGetRankedImageFaceTags?apikey=8978166d02d35e1d0c8b2126addda4ba5515202c&outputMode=json&imagePostMode=raw";
+    
+    // Create 'POST' MutableRequest with Data and Other Image Attachment.
+    NSMutableURLRequest* request= [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
-    [request setURL:[NSURL URLWithString:@"http://access.alchemyapi.com/calls/image/ImageGetRankedImageFaceTags?apikey=8978166d02d35e1d0c8b2126addda4ba5515202c"]];
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    NSString *contentType = [NSString stringWithFormat:@"application/x-www-form-urlencode; boundary=%@",boundary];
+    NSMutableData *postbody = [NSMutableData data];
+    [postbody appendData:[NSData dataWithData:dataImage]];
+    [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:postbody];
     
+    // Get Response of Your Request
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *responseString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    NSLog(@"Response  %@",responseString);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:responseString
+                                                   delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
     
-    NSString *boundary = @"------------0xKhTmLbOuNdArY";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-    
-    
-    
-    NSMutableData *body = [NSMutableData data];
-    [body appendData:[[NSString stringWithFormat:@"\r\n%@\r\n",boundary] dataUsingEncoding:NSASCIIStringEncoding]];
-    
-    [body appendData:[@"Content-Disposition: form-data; name=\"image\"; filename=\"photo.png\"\r\n" dataUsingEncoding:NSASCIIStringEncoding]];
-    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSASCIIStringEncoding]];
-    [body appendData:[NSData dataWithData:UIImageJPEGRepresentation(self.imageView.image, 90)]];
-    
-    [body appendData:[[NSString stringWithFormat:@"\r\n%@",boundary] dataUsingEncoding:NSASCIIStringEncoding]];
-    // setting the body of the post to the reqeust
-    [request setHTTPBody:body];
-    
-    //add terminating boundary marker
-    [body appendData:[[NSString stringWithFormat:@"\r\n%@--",boundary] dataUsingEncoding:NSASCIIStringEncoding]];
-    
-    NSError *error;
-    NSURLResponse *response;
-    NSData* result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    NSString* aStr = [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding];
-    
-    NSLog(@"Result: %@", aStr);
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -136,5 +152,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
 
 
-@end
 
+
+@end
