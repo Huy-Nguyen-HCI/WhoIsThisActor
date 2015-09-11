@@ -7,21 +7,27 @@
 //
 
 #import "ResultViewController.h"
-#import "Actor.h"
 @interface ResultViewController ()
 
-@property (strong, nonatomic) NSString *information;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dbpediaHeader;
+@property (weak, nonatomic) IBOutlet UILabel *freebaseHeader;
+@property (weak, nonatomic) IBOutlet UILabel *opencycHeader;
+@property (weak, nonatomic) IBOutlet UILabel *yagoHeader;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dbpediaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *freebaseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *opencycLabel;
-@property (weak, nonatomic) IBOutlet UITextView *subTypes;
 @property (weak, nonatomic) IBOutlet UILabel *yagoLabel;
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labelTitles;
+@property (weak, nonatomic) IBOutlet UILabel *genderLabel;
 
-@property (strong, nonatomic) Actor *actor;
+@property (strong, nonatomic) NSArray *labelTitles;
+@property (strong, nonatomic) NSArray *labelContents;
+
 
 @end
 
@@ -34,25 +40,35 @@
     return _actor;
 }
 
+- (NSArray *)labelTitles
+{
+    if (!_labelTitles){
+        _labelTitles = [NSArray arrayWithObjects:self.dbpediaHeader, self.freebaseHeader, self.opencycHeader, self.yagoHeader, self.nameLabel, self.ageLabel, self.genderLabel, nil];
+    }
+    return _labelTitles;
+}
+
+- (NSArray *)labelContents
+{
+    if (!_labelContents){
+        _labelContents = [NSArray arrayWithObjects: self.dbpediaLabel, self.freebaseLabel, self.opencycLabel, self.yagoLabel, self.nameLabel, self.ageLabel, self.genderLabel, nil];
+    }
+    return _labelContents;
+}
+
 - (void)setVisibilityForAllFields:(BOOL)isVisible
 {
-    self.nameLabel.hidden = !isVisible;
-    self.ageLabel.hidden = !isVisible;
-    self.dbpediaLabel.hidden = !isVisible;
-    self.freebaseLabel.hidden = !isVisible;
-    self.opencycLabel.hidden = !isVisible;
-    self.subTypes.hidden = !isVisible;
-    self.yagoLabel.hidden = !isVisible;
-    for (UILabel *label in self.labelTitles){
+    for (UILabel *label in self.labelContents)
         label.hidden = !isVisible;
-    }
+    
+    for (UILabel *label in self.labelTitles)
+        label.hidden = !isVisible;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setVisibilityForAllFields:NO];
-    self.subTypes.editable = NO;
     [self.activityIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(){
@@ -60,8 +76,8 @@
         [self extractInformation];
         dispatch_async(dispatch_get_main_queue(), ^(){
             //Run UI Updates
-            [self displayActorInformation];
             [self setVisibilityForAllFields:YES];
+            [self displayActorInformation];
             [self makeAllLinksClickable];
             [self.activityIndicator stopAnimating];
         });
@@ -71,9 +87,12 @@
 
 - (NSString *)extractInformationWithTitle:(NSString *)title
 {
-    NSArray *components = [self.information componentsSeparatedByString:[NSString stringWithFormat:@"\"%@\": \"", title]];
-    NSArray *furtherBreakdown = [components[1] componentsSeparatedByString:@"\""];
-    return furtherBreakdown[0];
+    NSArray *components = [self.actor.information componentsSeparatedByString:[NSString stringWithFormat:@"\"%@\": \"", title]];
+    if ([components count] >= 2){
+        NSArray *furtherBreakdown = [components[1] componentsSeparatedByString:@"\""];
+        return [furtherBreakdown firstObject];
+    }
+    return @"";
 }
 
 - (void)extractInformation
@@ -81,9 +100,10 @@
     Actor *actor = self.actor;
     // extract name
     actor.name = [self extractInformationWithTitle:@"name"];
-    NSLog(@"hello: %@", actor.name);
     // extract age
     actor.age = [self extractInformationWithTitle:@"ageRange"];
+    // extract gender
+    actor.gender = [actor.information containsString:@"FEMALE"] ? @"FEMALE" : @"MALE";
     // extract dbpedia
     actor.dbpedia = [self extractInformationWithTitle:@"dbpedia"];
     // extract freebase
@@ -98,18 +118,29 @@
 - (void)displayActorInformation
 {
     self.nameLabel.text = self.actor.name;
-    self.ageLabel.text = self.actor.age;
+    self.ageLabel.text = [NSString stringWithFormat:@"Age: %@", self.actor.age];
+    self.genderLabel.text = [NSString stringWithFormat:@"Gender: %@",self.actor.gender];
     self.dbpediaLabel.text = self.actor.dbpedia;
     self.freebaseLabel.text = self.actor.freebase;
     self.opencycLabel.text = self.actor.opencyc;
     self.yagoLabel.text = self.actor.yago;
+    
+    // if a field is empty, make it invisible
+    for (UILabel *label in self.labelContents){
+        if (![label.text length]){
+            label.hidden = YES;
+            NSUInteger index = [self.labelContents indexOfObject:label];
+            ((UILabel *)self.labelTitles[index]).hidden = YES;
+            NSLog(@"%@", ((UILabel *)self.labelTitles[index]).text);
+        }
+    }
     
 }
 
 - (void)getImageInformation
 {
     // Convert Image to NSData
-    NSData *dataImage = UIImageJPEGRepresentation(self.image, 1.0f);
+    NSData *dataImage = UIImageJPEGRepresentation(self.actor.image, 1.0f);
     
     // set your URL Where to Upload Image
     NSString *urlString = @"http://access.alchemyapi.com/calls/image/ImageGetRankedImageFaceTags?apikey=8978166d02d35e1d0c8b2126addda4ba5515202c&outputMode=json&imagePostMode=raw";
@@ -128,7 +159,7 @@
     // Get Response of Your Request
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *responseString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-    self.information = responseString;
+    self.actor.information = responseString;
     
 }
 

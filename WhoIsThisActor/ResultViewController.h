@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Actor.h"
 
 @interface ResultViewController : UIViewController <UIActionSheetDelegate>
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) NSString *resultLink;
-@property (strong, nonatomic) UIImage *image;
+
+@property (strong, nonatomic) Actor *actor;
 
 @end

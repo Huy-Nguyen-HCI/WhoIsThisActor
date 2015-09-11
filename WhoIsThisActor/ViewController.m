@@ -131,7 +131,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     if ([segue.identifier isEqualToString:@"Show result"]){
         ResultViewController *resultView = (ResultViewController *)segue.destinationViewController;
         resultView.title = @"Here is your result!";
-        resultView.image = [self standardizeImage];
+        resultView.actor.image = [self standardizeImage];
     }
 }
 
