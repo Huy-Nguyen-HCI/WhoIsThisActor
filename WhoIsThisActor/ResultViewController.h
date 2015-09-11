@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ResultViewController : UIViewController <UIActionSheetDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSString *resultLink;
-
+@property (strong, nonatomic) UIImage *image;
 
 @end

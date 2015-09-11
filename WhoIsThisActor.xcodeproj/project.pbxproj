@@ -15,6 +15,7 @@
 		003E502A1B9C122F005C5426 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003E50291B9C122F005C5426 /* Images.xcassets */; };
 		003E502D1B9C122F005C5426 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003E502B1B9C122F005C5426 /* LaunchScreen.xib */; };
 		003E50391B9C122F005C5426 /* WhoIsThisActorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */; };
+		00EDE2D81BA24E9100D56174 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EDE2D71BA24E9100D56174 /* Actor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		003E50321B9C122F005C5426 /* WhoIsThisActorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoIsThisActorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		003E50371B9C122F005C5426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhoIsThisActorTests.m; sourceTree = "<group>"; };
+		00EDE2D61BA24E9100D56174 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
+		00EDE2D71BA24E9100D56174 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				003E501C1B9C122F005C5426 /* Supporting Files */,
 				001B71441B9CD34200F7290B /* ResultViewController.h */,
 				001B71451B9CD34200F7290B /* ResultViewController.m */,
+				00EDE2D61BA24E9100D56174 /* Actor.h */,
+				00EDE2D71BA24E9100D56174 /* Actor.m */,
 			);
 			path = WhoIsThisActor;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				003E50251B9C122F005C5426 /* ViewController.m in Sources */,
+				00EDE2D81BA24E9100D56174 /* Actor.m in Sources */,
 				003E50221B9C122F005C5426 /* AppDelegate.m in Sources */,
 				003E501F1B9C122F005C5426 /* main.m in Sources */,
 				001B71461B9CD34200F7290B /* ResultViewController.m in Sources */,
