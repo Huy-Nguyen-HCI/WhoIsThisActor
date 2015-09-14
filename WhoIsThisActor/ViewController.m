@@ -14,8 +14,10 @@
 
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
 @property (strong, nonatomic) NSString *information;
 @end
 
@@ -24,8 +26,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.imageView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.imageView.layer.borderWidth = 1;
+    self.view.backgroundColor = [UIColor blackColor];
+    _takePhotoButton.layer.cornerRadius = 5.0;
+    _takePhotoButton.layer.masksToBounds = YES;
+    _submitButton.layer.cornerRadius = 5.0;
+    _submitButton.layer.masksToBounds = YES;
+    _selectButton.layer.cornerRadius = 5.0;
+    _selectButton.layer.masksToBounds = YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    self.navigationController.navigationBar.frame = CGRectMake(0, 0, 320, 44);
+
+
 }
 - (IBAction)selectPicture:(UIButton *)sender
 {

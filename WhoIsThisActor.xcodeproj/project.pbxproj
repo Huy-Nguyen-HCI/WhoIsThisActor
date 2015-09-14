@@ -15,6 +15,7 @@
 		003E502A1B9C122F005C5426 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003E50291B9C122F005C5426 /* Images.xcassets */; };
 		003E502D1B9C122F005C5426 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003E502B1B9C122F005C5426 /* LaunchScreen.xib */; };
 		003E50391B9C122F005C5426 /* WhoIsThisActorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */; };
+		00AFDF131BA66DC50023CAF7 /* favorite-star-icon copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */; };
 		00EDE2D81BA24E9100D56174 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EDE2D71BA24E9100D56174 /* Actor.m */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		003E50321B9C122F005C5426 /* WhoIsThisActorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoIsThisActorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		003E50371B9C122F005C5426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhoIsThisActorTests.m; sourceTree = "<group>"; };
+		00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite-star-icon copy.png"; sourceTree = "<group>"; };
 		00EDE2D61BA24E9100D56174 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		00EDE2D71BA24E9100D56174 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 		003E501C1B9C122F005C5426 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */,
 				003E50291B9C122F005C5426 /* Images.xcassets */,
 				003E50201B9C122F005C5426 /* AppDelegate.h */,
 				003E502B1B9C122F005C5426 /* LaunchScreen.xib */,
@@ -178,6 +181,7 @@
 				TargetAttributes = {
 					003E50181B9C122F005C5426 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 8XQ79PAU47;
 					};
 					003E50311B9C122F005C5426 = {
 						CreatedOnToolsVersion = 6.4;
@@ -211,6 +215,7 @@
 			files = (
 				003E50281B9C122F005C5426 /* Main.storyboard in Resources */,
 				003E502D1B9C122F005C5426 /* LaunchScreen.xib in Resources */,
+				00AFDF131BA66DC50023CAF7 /* favorite-star-icon copy.png in Resources */,
 				003E502A1B9C122F005C5426 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,9 +364,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhoIsThisActor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -369,9 +378,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhoIsThisActor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
