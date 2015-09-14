@@ -19,9 +19,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 @property (strong, nonatomic) NSString *information;
+@property (nonatomic) BOOL isImageAvailable;
 @end
 
 @implementation ViewController
+
+- (BOOL)isIsImageAvailable
+{
+    if (!_isImageAvailable) _isImageAvailable = NO;
+    return _isImageAvailable;
+}
 
 - (void)viewDidLoad
 {
@@ -109,6 +116,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     }
     
     self.imageView.image = image;
+    self.isImageAvailable = YES;
     [self dismissImagePicker];
     
 }
@@ -127,7 +135,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     if ([identifier isEqualToString:@"Show result"]){
-        if (!self.imageView.image){
+        if (!self.isImageAvailable){
             UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Image not found" message:@"You need to take or select a photo" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
             [alert show];
             return NO;

@@ -89,6 +89,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cqh-th-hjK"/>
                     <connections>
+                        <outlet property="imageView" destination="gJV-mY-MJM" id="wtM-kk-bE2"/>
                         <outlet property="selectButton" destination="oTE-ht-mKa" id="7pE-c7-5O3"/>
                         <outlet property="submitButton" destination="Xbv-cl-t4f" id="xfr-nS-4QF"/>
                         <outlet property="takePhotoButton" destination="ng4-cy-mwf" id="dNg-jU-gGB"/>
