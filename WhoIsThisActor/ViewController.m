@@ -14,21 +14,14 @@
 
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 @property (strong, nonatomic) NSString *information;
-@property (nonatomic) BOOL isImageAvailable;
 @end
 
 @implementation ViewController
 
-- (BOOL)isIsImageAvailable
-{
-    if (!_isImageAvailable) _isImageAvailable = NO;
-    return _isImageAvailable;
-}
 
 - (void)viewDidLoad
 {
@@ -36,8 +29,6 @@
     self.view.backgroundColor = [UIColor blackColor];
     _takePhotoButton.layer.cornerRadius = 5.0;
     _takePhotoButton.layer.masksToBounds = YES;
-    _submitButton.layer.cornerRadius = 5.0;
-    _submitButton.layer.masksToBounds = YES;
     _selectButton.layer.cornerRadius = 5.0;
     _selectButton.layer.masksToBounds = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
@@ -77,10 +68,10 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     return randomString;
 }
 
-- (UIImage *)standardizeImage
+- (UIImage *)standardizeImage:(UIImage *)image
 {
-    float actualHeight = self.imageView.image.size.height;
-    float actualWidth = self.imageView.image.size.width;
+    float actualHeight = image.size.height;
+    float actualWidth = image.size.width;
     float imgRatio = actualWidth/actualHeight;
     float maxRatio = 320.0/480.0;
     
@@ -98,7 +89,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     }
     CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
     UIGraphicsBeginImageContext(rect.size);
-    [self.imageView.image drawInRect:rect];
+    [image drawInRect:rect];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
@@ -115,9 +106,15 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     }
     
-    self.imageView.image = image;
-    self.isImageAvailable = YES;
     [self dismissImagePicker];
+    
+    // segue to the result view
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    ResultViewController *resultView = (ResultViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Result"];
+    resultView.title = @"Here is your result!";
+    resultView.actor.image = [self standardizeImage:image];
+    [self presentViewController:resultView animated:YES completion:nil];
+    
     
 }
 
@@ -132,27 +129,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 }
 
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    if ([identifier isEqualToString:@"Show result"]){
-        if (!self.isImageAvailable){
-            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Image not found" message:@"You need to take or select a photo" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-            [alert show];
-            return NO;
-        }
-        
-    }
-    return YES;
-}
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Show result"]){
-        ResultViewController *resultView = (ResultViewController *)segue.destinationViewController;
-        resultView.title = @"Here is your result!";
-        resultView.actor.image = [self standardizeImage];
-    }
-}
 
 
 
