@@ -19,4 +19,8 @@
 @property (nonatomic, strong) NSString *opencyc;
 @property (nonatomic, strong) NSString *yago;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSMutableArray *availableInformation;
+
+- (void)getImageInformation;
+- (void)extractInformation;
 @end

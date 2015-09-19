@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		001B71461B9CD34200F7290B /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001B71451B9CD34200F7290B /* ResultViewController.m */; };
+		0028A8481BAC650400E689EE /* ResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028A8471BAC650400E689EE /* ResultTableViewController.m */; };
+		0028A84B1BAC654E00E689EE /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0028A84A1BAC654E00E689EE /* ResultCell.m */; };
 		003E501F1B9C122F005C5426 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E501E1B9C122F005C5426 /* main.m */; };
 		003E50221B9C122F005C5426 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50211B9C122F005C5426 /* AppDelegate.m */; };
 		003E50251B9C122F005C5426 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50241B9C122F005C5426 /* ViewController.m */; };
@@ -32,6 +34,10 @@
 /* Begin PBXFileReference section */
 		001B71441B9CD34200F7290B /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		001B71451B9CD34200F7290B /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		0028A8461BAC650400E689EE /* ResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewController.h; sourceTree = "<group>"; };
+		0028A8471BAC650400E689EE /* ResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewController.m; sourceTree = "<group>"; };
+		0028A8491BAC654E00E689EE /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
+		0028A84A1BAC654E00E689EE /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
 		003E50191B9C122F005C5426 /* WhoIsThisActor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoIsThisActor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		003E501D1B9C122F005C5426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003E501E1B9C122F005C5426 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +103,10 @@
 				001B71451B9CD34200F7290B /* ResultViewController.m */,
 				00EDE2D61BA24E9100D56174 /* Actor.h */,
 				00EDE2D71BA24E9100D56174 /* Actor.m */,
+				0028A8461BAC650400E689EE /* ResultTableViewController.h */,
+				0028A8471BAC650400E689EE /* ResultTableViewController.m */,
+				0028A8491BAC654E00E689EE /* ResultCell.h */,
+				0028A84A1BAC654E00E689EE /* ResultCell.m */,
 			);
 			path = WhoIsThisActor;
 			sourceTree = "<group>";
@@ -235,9 +245,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				003E50251B9C122F005C5426 /* ViewController.m in Sources */,
+				0028A84B1BAC654E00E689EE /* ResultCell.m in Sources */,
 				00EDE2D81BA24E9100D56174 /* Actor.m in Sources */,
 				003E50221B9C122F005C5426 /* AppDelegate.m in Sources */,
 				003E501F1B9C122F005C5426 /* main.m in Sources */,
+				0028A8481BAC650400E689EE /* ResultTableViewController.m in Sources */,
 				001B71461B9CD34200F7290B /* ResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
