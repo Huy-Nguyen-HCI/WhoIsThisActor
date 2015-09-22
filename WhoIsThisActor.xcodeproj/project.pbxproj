@@ -19,6 +19,8 @@
 		003E50391B9C122F005C5426 /* WhoIsThisActorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */; };
 		00AFDF131BA66DC50023CAF7 /* favorite-star-icon copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */; };
 		00EDE2D81BA24E9100D56174 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EDE2D71BA24E9100D56174 /* Actor.m */; };
+		39452DC41BB0C0110098B198 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 39452DC21BB0C0110098B198 /* button.png */; settings = {ASSET_TAGS = (); }; };
+		39452DC51BB0C0110098B198 /* Design.png in Resources */ = {isa = PBXBuildFile; fileRef = 39452DC31BB0C0110098B198 /* Design.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite-star-icon copy.png"; sourceTree = "<group>"; };
 		00EDE2D61BA24E9100D56174 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		00EDE2D71BA24E9100D56174 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
+		39452DC21BB0C0110098B198 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = ../../../../../Desktop/button.png; sourceTree = "<group>"; };
+		39452DC31BB0C0110098B198 /* Design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Design.png; path = ../../../../../Desktop/Design.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 			children = (
 				00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */,
 				003E50291B9C122F005C5426 /* Images.xcassets */,
+				39452DC21BB0C0110098B198 /* button.png */,
+				39452DC31BB0C0110098B198 /* Design.png */,
 				003E50201B9C122F005C5426 /* AppDelegate.h */,
 				003E502B1B9C122F005C5426 /* LaunchScreen.xib */,
 				003E50211B9C122F005C5426 /* AppDelegate.m */,
@@ -224,9 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				003E50281B9C122F005C5426 /* Main.storyboard in Resources */,
+				39452DC41BB0C0110098B198 /* button.png in Resources */,
 				003E502D1B9C122F005C5426 /* LaunchScreen.xib in Resources */,
 				00AFDF131BA66DC50023CAF7 /* favorite-star-icon copy.png in Resources */,
 				003E502A1B9C122F005C5426 /* Images.xcassets in Resources */,
+				39452DC51BB0C0110098B198 /* Design.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
