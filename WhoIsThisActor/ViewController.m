@@ -23,10 +23,16 @@
 
 @implementation ViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
     self.takePhotoButton.layer.cornerRadius = 5.0;
     self.takePhotoButton.layer.masksToBounds = YES;
     self.selectButton.layer.cornerRadius = 5.0;

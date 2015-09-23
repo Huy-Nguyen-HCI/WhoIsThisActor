@@ -43,11 +43,18 @@
     return _activityIndicator;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+
 #pragma mark - View Controller Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.activityIndicator startAnimating];
+    [self setNeedsStatusBarAppearanceUpdate];
     self.backButton.hidden = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(){
@@ -72,8 +79,8 @@
         ResultCell *cell = (ResultCell *)[tableView dequeueReusableCellWithIdentifier:@"First Cell"];
         cell.nameLabel.text = self.actor.name;
         cell.imageView.image = self.actor.image;
-        cell.age.text = [NSString stringWithFormat:@"Age: %@", self.actor.age];
-        cell.gender.text = [NSString stringWithFormat:@"Gender: %@", self.actor.gender];
+        cell.age.text = [NSString stringWithFormat:@"%@", self.actor.age];
+        cell.gender.text = [NSString stringWithFormat:@"%@", self.actor.gender];
         return cell;
     }
     
