@@ -310,7 +310,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Var-tO-8ns">
-                            <rect key="frame" x="0.0" y="292" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="497" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Back">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -338,20 +338,6 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucf-lt-PcC">
-                                            <rect key="frame" x="128" y="155" width="355" height="31"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="kVo-vp-enx"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="textColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="kVo-vp-enx"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy7-bp-c9c">
                                             <rect key="frame" x="271" y="194" width="59" height="21"/>
                                             <constraints>
@@ -366,6 +352,26 @@
                                                 </mask>
                                             </variation>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucf-lt-PcC">
+                                            <rect key="frame" x="128" y="155" width="355" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="kVo-vp-enx"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="kVo-vp-enx"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9R1-Iq-to8">
+                                            <rect key="frame" x="196" y="15" width="209" height="121"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="209" id="7DH-pn-5lx"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="0FT-Lx-ceB" firstAttribute="top" secondItem="18y-o5-KEx" secondAttribute="topMargin" constant="-32" id="4W1-8f-r3g"/>
@@ -378,19 +384,26 @@
                                         <constraint firstItem="Ucf-lt-PcC" firstAttribute="centerX" secondItem="18y-o5-KEx" secondAttribute="centerX" id="RLD-Sw-KfA"/>
                                         <constraint firstItem="Ucf-lt-PcC" firstAttribute="top" secondItem="18y-o5-KEx" secondAttribute="topMargin" id="SgT-Tu-s9h"/>
                                         <constraint firstItem="0FT-Lx-ceB" firstAttribute="leading" secondItem="18y-o5-KEx" secondAttribute="leadingMargin" id="VpC-2s-fDr"/>
+                                        <constraint firstItem="Ucf-lt-PcC" firstAttribute="top" secondItem="9R1-Iq-to8" secondAttribute="bottom" constant="8" id="Zt0-pX-x6x"/>
+                                        <constraint firstItem="9R1-Iq-to8" firstAttribute="top" secondItem="18y-o5-KEx" secondAttribute="topMargin" constant="7" id="dDv-UZ-AEZ"/>
+                                        <constraint firstItem="9R1-Iq-to8" firstAttribute="centerX" secondItem="Xy7-bp-c9c" secondAttribute="centerX" id="fiI-65-PUN"/>
                                         <constraint firstItem="0FT-Lx-ceB" firstAttribute="width" secondItem="18y-o5-KEx" secondAttribute="width" id="jMn-BP-cQb"/>
+                                        <constraint firstItem="0FT-Lx-ceB" firstAttribute="top" secondItem="9R1-Iq-to8" secondAttribute="bottom" constant="-165" id="jfg-H2-bCm"/>
                                         <constraint firstItem="0FT-Lx-ceB" firstAttribute="leading" secondItem="Xy7-bp-c9c" secondAttribute="trailing" constant="-290" id="ljZ-QE-Gxh"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="0FT-Lx-ceB" secondAttribute="bottom" id="mJ9-uG-mwh"/>
                                         <constraint firstItem="Xy7-bp-c9c" firstAttribute="centerX" secondItem="0FT-Lx-ceB" secondAttribute="centerX" id="rQB-Xs-izd"/>
+                                        <constraint firstItem="Ucf-lt-PcC" firstAttribute="top" secondItem="9R1-Iq-to8" secondAttribute="bottom" constant="19" id="vG1-dN-Jq9"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="FjT-vM-wyz"/>
                                             <exclude reference="NHc-c3-Bgg"/>
                                             <exclude reference="VpC-2s-fDr"/>
+                                            <exclude reference="jfg-H2-bCm"/>
                                             <exclude reference="ljZ-QE-Gxh"/>
                                             <exclude reference="Fau-kn-87C"/>
                                             <exclude reference="SgT-Tu-s9h"/>
+                                            <exclude reference="Zt0-pX-x6x"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -400,22 +413,22 @@
                                     <outlet property="nameLabel" destination="Ucf-lt-PcC" id="s52-cs-5Rf"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Other Information" textLabel="c4R-mC-aYK" detailTextLabel="Nda-dn-ab9" rowHeight="33" style="IBUITableViewCellStyleSubtitle" id="YSd-1s-n7V">
-                                <rect key="frame" x="0.0" y="259" width="600" height="33"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Other Information" textLabel="c4R-mC-aYK" detailTextLabel="Nda-dn-ab9" style="IBUITableViewCellStyleSubtitle" id="YSd-1s-n7V">
+                                <rect key="frame" x="0.0" y="259" width="600" height="238"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YSd-1s-n7V" id="3ka-V9-hGD">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="32.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="237.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c4R-mC-aYK">
-                                            <rect key="frame" x="15" y="0.0" width="31.5" height="19.5"/>
+                                            <rect key="frame" x="15" y="103" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nda-dn-ab9">
-                                            <rect key="frame" x="15" y="19.5" width="40.5" height="13.5"/>
+                                            <rect key="frame" x="15" y="122.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

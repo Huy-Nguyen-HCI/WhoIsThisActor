@@ -65,8 +65,7 @@
             //Run UI Updates
             [self.activityIndicator stopAnimating];
             [self.tableView reloadData];
-            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-            [self.tableView setSeparatorColor:[UIColor blueColor]];
+            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
             self.backButton.hidden = NO;
         });
     });
@@ -79,6 +78,17 @@
         ResultCell *cell = (ResultCell *)[tableView dequeueReusableCellWithIdentifier:@"First Cell"];
         cell.nameLabel.text = self.actor.name;
         cell.imageView.image = self.actor.image;
+        
+        
+        cell.imageView.backgroundColor = [UIColor clearColor];
+        
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        blurEffectView.frame = cell.imageView.bounds;
+        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
+        [cell.imageView addSubview:blurEffectView];
+
         cell.age.text = [NSString stringWithFormat:@"%@", self.actor.age];
         cell.gender.text = [NSString stringWithFormat:@"%@", self.actor.gender];
         return cell;

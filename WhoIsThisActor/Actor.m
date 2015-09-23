@@ -18,6 +18,34 @@
     return _availableInformation;
 }
 
+
+- (void)getActorInformation
+{
+    // Convert Image to NSData
+    NSData *dataImage = UIImageJPEGRepresentation(self.image, 1.0f);
+    
+    // set your URL Where to Upload Image
+    NSString *urlString = @"http://access.alchemyapi.com/calls/image/ImageGetRankedImageFaceTags?apikey=8978166d02d35e1d0c8b2126addda4ba5515202c&outputMode=json&imagePostMode=raw";
+    
+    // Create 'POST' MutableRequest with Data and Other Image Attachment.
+    NSMutableURLRequest* request= [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    NSString *contentType = [NSString stringWithFormat:@"application/x-www-form-urlencode; boundary=%@",boundary];
+    NSMutableData *postbody = [NSMutableData data];
+    [postbody appendData:[NSData dataWithData:dataImage]];
+    [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:postbody];
+    
+    // Get Response of Your Request
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *responseString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    self.information = responseString;
+    
+}
+
+
 - (void)getImageInformation
 {
     // Convert Image to NSData

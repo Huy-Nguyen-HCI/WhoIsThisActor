@@ -126,6 +126,7 @@
     self.yagoLabel.text = self.actor.yago;
     
     // if a field is empty, make it invisible
+    
     for (UILabel *label in self.labelContents){
         if (![label.text length]){
             label.hidden = YES;
@@ -134,6 +135,7 @@
             NSLog(@"%@", ((UILabel *)self.labelTitles[index]).text);
         }
     }
+     
     
 }
 
