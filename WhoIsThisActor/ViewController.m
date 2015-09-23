@@ -26,11 +26,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Design.png"]];
-    [self.view addSubview:background];
-    [self.view sendSubviewToBack: background];
-    
+    [super viewDidLoad];    
     self.takePhotoButton.layer.cornerRadius = 5.0;
     self.takePhotoButton.layer.masksToBounds = YES;
     self.selectButton.layer.cornerRadius = 5.0;
