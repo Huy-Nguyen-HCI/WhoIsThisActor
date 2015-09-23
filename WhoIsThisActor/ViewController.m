@@ -10,7 +10,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <QuartzCore/QuartzCore.h>
-#import "ResultViewController.h"
 #import "ResultTableViewController.h"
 
 
@@ -116,13 +115,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     
     // segue to the result view
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    /*
-    ResultViewController *resultView = (ResultViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Result"];
-    resultView.title = @"Here is your result!";
-    resultView.actor.image = [self standardizeImage:image];
-    [self presentViewController:resultView animated:YES completion:nil];
-     */
-    
+
     ResultTableViewController *resultView = (ResultTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Result"];
     resultView.actor.image = [self standardizeImage:image];
     [self presentViewController:resultView animated:YES completion:nil];

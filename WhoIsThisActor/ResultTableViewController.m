@@ -141,7 +141,7 @@
 
 - (IBAction)goBack:(UIButton *)sender
 {
-    [self.presentingViewController dismissViewControllerAnimated:self.view completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
