@@ -15,7 +15,7 @@
 
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+//@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 @property (strong, nonatomic) NSString *information;
@@ -27,11 +27,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
-    _takePhotoButton.layer.cornerRadius = 5.0;
-    _takePhotoButton.layer.masksToBounds = YES;
-    _selectButton.layer.cornerRadius = 5.0;
-    _selectButton.layer.masksToBounds = YES;
+    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Design.png"]];
+    [self.view addSubview:background];
+    [self.view sendSubviewToBack: background];
+    
+    self.takePhotoButton.layer.cornerRadius = 5.0;
+    self.takePhotoButton.layer.masksToBounds = YES;
+    self.selectButton.layer.cornerRadius = 5.0;
+    self.selectButton.layer.masksToBounds = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     self.navigationController.navigationBar.frame = CGRectMake(0, 0, 320, 44);
 
