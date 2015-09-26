@@ -60,6 +60,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(){
         [self.actor getImageInformation];
         [self.actor extractInformation];
+        [self.actor getActorInformation];
         self.isInformationAvailable = YES;
         dispatch_async(dispatch_get_main_queue(), ^(){
             //Run UI Updates
@@ -78,9 +79,10 @@
         ResultCell *cell = (ResultCell *)[tableView dequeueReusableCellWithIdentifier:@"First Cell"];
         cell.nameLabel.text = self.actor.name;
         cell.imageView.image = self.actor.image;
-        
-        
         cell.imageView.backgroundColor = [UIColor clearColor];
+        
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.actor.imageurl]];
+        cell.realImage.image = [UIImage imageWithData: imageData];
         
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -98,24 +100,20 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Other Information"];
         switch(indexPath.row){
             case 1:
-                cell.textLabel.text = @"dbpedia";
-                cell.detailTextLabel.text = self.actor.dbpedia;
+                cell.textLabel.text = @"Biography";
+                cell.detailTextLabel.text = self.actor.biography;
                 break;
             
             case 2:
-                cell.textLabel.text = @"freebase";
-                cell.detailTextLabel.text = self.actor.freebase;
+                cell.textLabel.text = @"Birthday";
+                cell.detailTextLabel.text = self.actor.birthday;
                 break;
             
             case 3:
-                cell.textLabel.text = @"opencyc";
-                cell.detailTextLabel.text = self.actor.opencyc;
+                cell.textLabel.text = @"Place of Birth";
+                cell.detailTextLabel.text = self.actor.place_of_birth;
                 break;
             
-            case 4:
-                cell.textLabel.text = @"yago";
-                cell.detailTextLabel.text = self.actor.yago;
-                break;
             default:
                 break;
         }

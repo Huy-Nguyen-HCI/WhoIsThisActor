@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Actor.h"
 @interface ResultTableViewController : UITableViewController <UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *vrai;
 
 @property (nonatomic, strong) Actor *actor;
 @end

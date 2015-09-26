@@ -130,17 +130,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="236.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FT-Lx-ceB">
-                                            <rect key="frame" x="0.0" y="-24" width="600" height="253"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="220" id="Lnv-5D-X08"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Lnv-5D-X08"/>
-                                                </mask>
-                                            </variation>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy7-bp-c9c">
                                             <rect key="frame" x="271" y="194" width="59" height="21"/>
                                             <constraints>
@@ -169,11 +158,22 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9R1-Iq-to8">
-                                            <rect key="frame" x="196" y="15" width="209" height="121"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button.png" translatesAutoresizingMaskIntoConstraints="NO" id="9R1-Iq-to8">
+                                            <rect key="frame" x="196" y="23" width="209" height="113"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="209" id="7DH-pn-5lx"/>
                                             </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FT-Lx-ceB">
+                                            <rect key="frame" x="0.0" y="-25" width="600" height="253"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="220" id="Lnv-5D-X08"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Lnv-5D-X08"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -188,7 +188,7 @@
                                         <constraint firstItem="Ucf-lt-PcC" firstAttribute="top" secondItem="18y-o5-KEx" secondAttribute="topMargin" id="SgT-Tu-s9h"/>
                                         <constraint firstItem="0FT-Lx-ceB" firstAttribute="leading" secondItem="18y-o5-KEx" secondAttribute="leadingMargin" id="VpC-2s-fDr"/>
                                         <constraint firstItem="Ucf-lt-PcC" firstAttribute="top" secondItem="9R1-Iq-to8" secondAttribute="bottom" constant="8" id="Zt0-pX-x6x"/>
-                                        <constraint firstItem="9R1-Iq-to8" firstAttribute="top" secondItem="18y-o5-KEx" secondAttribute="topMargin" constant="7" id="dDv-UZ-AEZ"/>
+                                        <constraint firstItem="9R1-Iq-to8" firstAttribute="top" secondItem="18y-o5-KEx" secondAttribute="topMargin" constant="15" id="dDv-UZ-AEZ"/>
                                         <constraint firstItem="9R1-Iq-to8" firstAttribute="centerX" secondItem="Xy7-bp-c9c" secondAttribute="centerX" id="fiI-65-PUN"/>
                                         <constraint firstItem="0FT-Lx-ceB" firstAttribute="width" secondItem="18y-o5-KEx" secondAttribute="width" id="jMn-BP-cQb"/>
                                         <constraint firstItem="0FT-Lx-ceB" firstAttribute="top" secondItem="9R1-Iq-to8" secondAttribute="bottom" constant="-165" id="jfg-H2-bCm"/>
@@ -214,24 +214,25 @@
                                     <outlet property="gender" destination="Xy7-bp-c9c" id="8v5-2V-bvo"/>
                                     <outlet property="imageView" destination="0FT-Lx-ceB" id="iRW-sQ-Uu5"/>
                                     <outlet property="nameLabel" destination="Ucf-lt-PcC" id="s52-cs-5Rf"/>
+                                    <outlet property="realImage" destination="9R1-Iq-to8" id="MeV-cr-lnS"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Other Information" textLabel="c4R-mC-aYK" detailTextLabel="Nda-dn-ab9" style="IBUITableViewCellStyleSubtitle" id="YSd-1s-n7V">
                                 <rect key="frame" x="0.0" y="259" width="600" height="238"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YSd-1s-n7V" id="3ka-V9-hGD">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="237"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="237.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c4R-mC-aYK">
-                                            <rect key="frame" x="15" y="102" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="103" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nda-dn-ab9">
-                                            <rect key="frame" x="15" y="122" width="41" height="14"/>
+                                            <rect key="frame" x="15" y="122.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
