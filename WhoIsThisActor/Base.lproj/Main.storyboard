@@ -130,6 +130,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="236.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0FT-Lx-ceB">
+                                            <rect key="frame" x="0.0" y="-24" width="600" height="253"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="220" id="Lnv-5D-X08"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Lnv-5D-X08"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy7-bp-c9c">
                                             <rect key="frame" x="271" y="194" width="59" height="21"/>
                                             <constraints>
@@ -163,17 +174,6 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="209" id="7DH-pn-5lx"/>
                                             </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FT-Lx-ceB">
-                                            <rect key="frame" x="0.0" y="-25" width="600" height="253"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="220" id="Lnv-5D-X08"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Lnv-5D-X08"/>
-                                                </mask>
-                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <constraints>
