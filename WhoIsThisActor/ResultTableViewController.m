@@ -173,7 +173,6 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath
 {
     if (indexPath.row != 1) return;
-    NSLog(@"hello");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     BiographyViewController *bio = (BiographyViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Biography"];
     bio.image = self.realImage;
