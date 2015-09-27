@@ -8,12 +8,15 @@
 
 #import "ResultTableViewController.h"
 #import "ResultCell.h"
+#import "BiographyViewController.h"
+#import "NoInformationCell.h"
 
 
 @interface ResultTableViewController ()
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) BOOL isInformationAvailable;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (nonatomic) UIImage *realImage;
 @end
 
 @implementation ResultTableViewController
@@ -61,7 +64,7 @@
         [self.actor getImageInformation];
         [self.actor extractInformation];
         [self.actor getActorInformation];
-        self.isInformationAvailable = YES;
+        self.isInformationAvailable = [self.actor.name length] ? YES : NO;
         dispatch_async(dispatch_get_main_queue(), ^(){
             //Run UI Updates
             [self.activityIndicator stopAnimating];
@@ -76,24 +79,40 @@
 - (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0){
-        ResultCell *cell = (ResultCell *)[tableView dequeueReusableCellWithIdentifier:@"First Cell"];
-        cell.nameLabel.text = self.actor.name;
-        cell.imageView.image = self.actor.image;
-        cell.imageView.backgroundColor = [UIColor clearColor];
-        
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.actor.imageurl]];
-        cell.realImage.image = [UIImage imageWithData: imageData];
-        
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        blurEffectView.frame = cell.imageView.bounds;
-        blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
-        [cell.imageView addSubview:blurEffectView];
-
-        cell.age.text = [NSString stringWithFormat:@"%@", self.actor.age];
-        cell.gender.text = [NSString stringWithFormat:@"%@", self.actor.gender];
-        return cell;
+        if (self.isInformationAvailable){
+            ResultCell *cell = (ResultCell *)[tableView dequeueReusableCellWithIdentifier:@"First Cell"];
+            cell.nameLabel.text = self.actor.name;
+            cell.imageView.image = self.actor.image;
+            cell.imageView.backgroundColor = [UIColor clearColor];
+            
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.actor.imageurl]];
+            cell.realImage.image = [UIImage imageWithData: imageData];
+            self.realImage = cell.realImage.image;
+            
+            UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+            UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+            blurEffectView.frame = cell.imageView.bounds;
+            blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            
+            [cell.imageView addSubview:blurEffectView];
+            
+            cell.age.text = [NSString stringWithFormat:@"%@", self.actor.age];
+            cell.gender.text = [NSString stringWithFormat:@"%@", self.actor.gender];
+            return cell;
+        }
+        else {
+            NoInformationCell *cell = (NoInformationCell *)[tableView dequeueReusableCellWithIdentifier:@"No information"];
+            // when information is loaded
+            BOOL isInformationReady = (self.actor.age) ? YES : NO;
+            if (isInformationReady){
+                cell.ageLabel.text =  [NSString stringWithFormat:@"Age: %@",self.actor.age];
+                cell.genderLabel.text = [NSString stringWithFormat:@"Gender: %@",self.actor.gender];
+            } else {
+                cell.ageLabel.text = @"Age: ";
+                cell.genderLabel.text = @"Gender: ";
+            }
+            return cell;
+        }
     }
     
     else {
@@ -102,6 +121,7 @@
             case 1:
                 cell.textLabel.text = @"Biography";
                 cell.detailTextLabel.text = self.actor.biography;
+                if (self.isInformationAvailable) cell.accessoryType = UITableViewCellAccessoryDetailButton;
                 break;
             
             case 2:
@@ -129,12 +149,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (self.isInformationAvailable) ? 4 : 0;
+    return (self.isInformationAvailable) ? 4 : 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return (indexPath.row == 0) ? 320 : 50;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    if (indexPath.row != 1) return;
+    NSLog(@"hello");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BiographyViewController *bio = (BiographyViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Biography"];
+    bio.image = self.realImage;
+    bio.biography = self.actor.biography;
+    bio.name = self.actor.name;
+    [self presentViewController:bio animated:YES completion:nil];
 }
 
 - (IBAction)goBack:(UIButton *)sender

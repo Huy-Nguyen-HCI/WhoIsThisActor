@@ -23,23 +23,23 @@
 {
     // First call to search for actor
     NSString *nameEncoded = [self.name stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-
+    
     NSString *urlString = [NSString stringWithFormat:@"http://api.themoviedb.org/3/search/person?api_key=54980fde8616b9217bd8c4401c70a975&query=%@",nameEncoded];
     
     NSMutableURLRequest* request= [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"GET"];
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//    NSString *responseString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    //    NSString *responseString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
     
     NSError *errorjson = nil;
     NSDictionary *jsonDict      = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingMutableLeaves
                                                                     error:&errorjson];
-     NSArray      *data          =  [jsonDict    valueForKey:@"results"];
+    NSArray      *data          =  [jsonDict    valueForKey:@"results"];
     NSArray     *actorid           = [data valueForKey:@"id"];
     self.knownfor  = [data valueForKey:@"known_for"];
-
+    
     
     
     urlString = [NSString stringWithFormat:@"http://api.themoviedb.org/3/person/%@?api_key=54980fde8616b9217bd8c4401c70a975",[actorid     objectAtIndex:0]];
@@ -47,19 +47,19 @@
     [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"GET"];
     returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//  responseString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    //  responseString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     jsonDict      = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingMutableLeaves
-                                                                    error:&errorjson];
+                                                      error:&errorjson];
     self.biography          =  [jsonDict    valueForKey:@"biography"];
     self.imdb          =  [jsonDict    valueForKey:@"imdb_id"];
     self.birthday=[jsonDict    valueForKey:@"birthday"];
     self.place_of_birth=[jsonDict    valueForKey:@"place_of_birth"];
     NSArray *image_url =[jsonDict    valueForKey:@"profile_path"];
     self.imageurl          =  [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w180_and_h180_bestv2%@",image_url];
-
+    
     //NSLog(responseString);
-
-   // self.moviedb_information = responseString;
+    
+    // self.moviedb_information = responseString;
     
 }
 

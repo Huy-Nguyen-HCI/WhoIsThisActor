@@ -16,6 +16,8 @@
 		003E502A1B9C122F005C5426 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 003E50291B9C122F005C5426 /* Images.xcassets */; };
 		003E502D1B9C122F005C5426 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003E502B1B9C122F005C5426 /* LaunchScreen.xib */; };
 		003E50391B9C122F005C5426 /* WhoIsThisActorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */; };
+		005813D31BB781A800F7DCD7 /* BiographyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005813D21BB781A800F7DCD7 /* BiographyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		005813D61BB78A2900F7DCD7 /* NoInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005813D51BB78A2900F7DCD7 /* NoInformationCell.m */; settings = {ASSET_TAGS = (); }; };
 		00AFDF131BA66DC50023CAF7 /* favorite-star-icon copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */; };
 		00DD74C91BB0EEF400E48457 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DD74C81BB0EEF400E48457 /* button.png */; settings = {ASSET_TAGS = (); }; };
 		00DD74CB1BB0EEFE00E48457 /* Design.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DD74CA1BB0EEFE00E48457 /* Design.png */; settings = {ASSET_TAGS = (); }; };
@@ -50,6 +52,10 @@
 		003E50321B9C122F005C5426 /* WhoIsThisActorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhoIsThisActorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		003E50371B9C122F005C5426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhoIsThisActorTests.m; sourceTree = "<group>"; };
+		005813D11BB781A800F7DCD7 /* BiographyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiographyViewController.h; sourceTree = "<group>"; };
+		005813D21BB781A800F7DCD7 /* BiographyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiographyViewController.m; sourceTree = "<group>"; };
+		005813D41BB78A2900F7DCD7 /* NoInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoInformationCell.h; sourceTree = "<group>"; };
+		005813D51BB78A2900F7DCD7 /* NoInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoInformationCell.m; sourceTree = "<group>"; };
 		00AFDF121BA66DC50023CAF7 /* favorite-star-icon copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite-star-icon copy.png"; sourceTree = "<group>"; };
 		00DD74C81BB0EEF400E48457 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		00DD74CA1BB0EEFE00E48457 /* Design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Design.png; sourceTree = "<group>"; };
@@ -106,6 +112,10 @@
 				0028A8471BAC650400E689EE /* ResultTableViewController.m */,
 				0028A8491BAC654E00E689EE /* ResultCell.h */,
 				0028A84A1BAC654E00E689EE /* ResultCell.m */,
+				005813D11BB781A800F7DCD7 /* BiographyViewController.h */,
+				005813D21BB781A800F7DCD7 /* BiographyViewController.m */,
+				005813D41BB78A2900F7DCD7 /* NoInformationCell.h */,
+				005813D51BB78A2900F7DCD7 /* NoInformationCell.m */,
 			);
 			path = WhoIsThisActor;
 			sourceTree = "<group>";
@@ -248,11 +258,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				003E50251B9C122F005C5426 /* ViewController.m in Sources */,
+				005813D61BB78A2900F7DCD7 /* NoInformationCell.m in Sources */,
 				0028A84B1BAC654E00E689EE /* ResultCell.m in Sources */,
 				00EDE2D81BA24E9100D56174 /* Actor.m in Sources */,
 				003E50221B9C122F005C5426 /* AppDelegate.m in Sources */,
 				003E501F1B9C122F005C5426 /* main.m in Sources */,
 				0028A8481BAC650400E689EE /* ResultTableViewController.m in Sources */,
+				005813D31BB781A800F7DCD7 /* BiographyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
