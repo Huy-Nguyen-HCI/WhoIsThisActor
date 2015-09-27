@@ -95,6 +95,7 @@
                 cell.imageView.image = self.actor.image;
                 cell.imageView.backgroundColor = [UIColor clearColor];
                 
+                
                 NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.actor.imageurl]];
                 cell.realImage.image = [UIImage imageWithData: imageData];
                 self.realImage = cell.realImage.image;
@@ -108,15 +109,19 @@
                 
                 cell.age.text = [NSString stringWithFormat:@"%@", self.actor.age];
                 cell.gender.text = [NSString stringWithFormat:@"%@", self.actor.gender];
+                
                 return cell;
             }
             else {
+                //NSLog(@"good here?");
                 NoInformationCell *cell = (NoInformationCell *)[tableView dequeueReusableCellWithIdentifier:@"No information"];
                 // when information is loaded
                 cell.ageLabel.text =  ([self.actor.age length]) ? [NSString stringWithFormat:@"Age: %@",self.actor.age] : @"";
                 cell.genderLabel.text = ([self.actor.gender length]) ? [NSString stringWithFormat:@"Gender: %@",self.actor.gender] : @"";
+                //NSLog(@"and here?");
                 if (![self.actor.age length] && ![self.actor.gender length]){
                     cell.titleLabel.text = @"Sorry we cannot tell anything about the image :((";
+                    //NSLog(@"and here too?");
                 }
                 return cell;
             }
@@ -129,18 +134,24 @@
         switch(indexPath.row){
             case 1:
                 cell.textLabel.text = @"Biography";
+                NSLog(@"good here?");
                 cell.detailTextLabel.text = self.actor.biography;
+                NSLog(@"and here?");
                 if (self.isInformationAvailable) cell.accessoryType = UITableViewCellAccessoryDetailButton;
                 break;
             
             case 2:
+                NSLog(@"and here too?");
                 cell.textLabel.text = @"Birthday";
                 cell.detailTextLabel.text = self.actor.birthday;
+                NSLog(@"how bout here too?");
                 break;
             
             case 3:
+                NSLog(@"checking");
                 cell.textLabel.text = @"Place of Birth";
                 cell.detailTextLabel.text = self.actor.place_of_birth;
+                NSLog(@"checkingggg");
                 break;
             
             default:

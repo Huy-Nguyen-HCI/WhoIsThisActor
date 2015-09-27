@@ -51,6 +51,7 @@
     jsonDict      = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingMutableLeaves
                                                       error:&errorjson];
     self.biography          =  [jsonDict    valueForKey:@"biography"];
+    if (self.biography == [NSNull null]) self.biography = @"Not Found";
     self.imdb          =  [jsonDict    valueForKey:@"imdb_id"];
     self.birthday=[jsonDict    valueForKey:@"birthday"];
     self.place_of_birth=[jsonDict    valueForKey:@"place_of_birth"];
