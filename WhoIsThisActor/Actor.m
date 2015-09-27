@@ -111,7 +111,7 @@
     if ([self.age length]) [self.availableInformation addObject:self.age];
     
     // extract gender
-    self.gender = [self.information containsString:@"FEMALE"] ? @"FEMALE" : @"MALE";
+    self.gender = [self.information containsString:@"FEMALE"] ? @"FEMALE" : [self.information containsString:@"MALE"] ? @"MALE" : @"";
     if ([self.gender length]) [self.availableInformation addObject:self.age];
     
     // extract dbpedia

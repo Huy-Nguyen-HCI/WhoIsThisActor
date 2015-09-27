@@ -11,4 +11,5 @@
 @interface NoInformationCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *genderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end

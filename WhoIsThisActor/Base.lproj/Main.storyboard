@@ -271,6 +271,7 @@
                                 <connections>
                                     <outlet property="ageLabel" destination="e5G-mo-SCZ" id="14v-rT-8xF"/>
                                     <outlet property="genderLabel" destination="bOc-cX-8jd" id="aWD-Nm-OVC"/>
+                                    <outlet property="titleLabel" destination="yhz-oS-fe7" id="I4w-R9-G3R"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

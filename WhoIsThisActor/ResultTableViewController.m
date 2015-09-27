@@ -17,6 +17,7 @@
 @property (nonatomic) BOOL isInformationAvailable;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (nonatomic) UIImage *realImage;
+@property (nonatomic) BOOL isInformationEnough;
 @end
 
 @implementation ResultTableViewController
@@ -33,6 +34,13 @@
     if (!_isInformationAvailable)
         _isInformationAvailable = NO;
     return _isInformationAvailable;
+}
+
+- (BOOL)isInformationEnough
+{
+    if (!_isInformationEnough)
+        _isInformationEnough = NO;
+    return _isInformationEnough;
 }
 
 - (UIActivityIndicatorView *)activityIndicator
@@ -64,10 +72,11 @@
         [self.actor getImageInformation];
         [self.actor extractInformation];
         [self.actor getActorInformation];
-        self.isInformationAvailable = [self.actor.name length] ? YES : NO;
+        self.isInformationAvailable = YES;
         dispatch_async(dispatch_get_main_queue(), ^(){
             //Run UI Updates
             [self.activityIndicator stopAnimating];
+            self.isInformationEnough = ([self.actor.name length]) ? YES : NO;
             [self.tableView reloadData];
             [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
             self.backButton.hidden = NO;
@@ -80,39 +89,39 @@
 {
     if (indexPath.row == 0){
         if (self.isInformationAvailable){
-            ResultCell *cell = (ResultCell *)[tableView dequeueReusableCellWithIdentifier:@"First Cell"];
-            cell.nameLabel.text = self.actor.name;
-            cell.imageView.image = self.actor.image;
-            cell.imageView.backgroundColor = [UIColor clearColor];
-            
-            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.actor.imageurl]];
-            cell.realImage.image = [UIImage imageWithData: imageData];
-            self.realImage = cell.realImage.image;
-            
-            UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-            UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-            blurEffectView.frame = cell.imageView.bounds;
-            blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            
-            [cell.imageView addSubview:blurEffectView];
-            
-            cell.age.text = [NSString stringWithFormat:@"%@", self.actor.age];
-            cell.gender.text = [NSString stringWithFormat:@"%@", self.actor.gender];
-            return cell;
-        }
-        else {
-            NoInformationCell *cell = (NoInformationCell *)[tableView dequeueReusableCellWithIdentifier:@"No information"];
-            // when information is loaded
-            BOOL isInformationReady = (self.actor.age) ? YES : NO;
-            if (isInformationReady){
-                cell.ageLabel.text =  [NSString stringWithFormat:@"Age: %@",self.actor.age];
-                cell.genderLabel.text = [NSString stringWithFormat:@"Gender: %@",self.actor.gender];
-            } else {
-                cell.ageLabel.text = @"Age: ";
-                cell.genderLabel.text = @"Gender: ";
+            if (self.isInformationEnough){
+                ResultCell *cell = (ResultCell *)[tableView dequeueReusableCellWithIdentifier:@"First Cell"];
+                cell.nameLabel.text = self.actor.name;
+                cell.imageView.image = self.actor.image;
+                cell.imageView.backgroundColor = [UIColor clearColor];
+                
+                NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.actor.imageurl]];
+                cell.realImage.image = [UIImage imageWithData: imageData];
+                self.realImage = cell.realImage.image;
+                
+                UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+                UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+                blurEffectView.frame = cell.imageView.bounds;
+                blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+                
+                [cell.imageView addSubview:blurEffectView];
+                
+                cell.age.text = [NSString stringWithFormat:@"%@", self.actor.age];
+                cell.gender.text = [NSString stringWithFormat:@"%@", self.actor.gender];
+                return cell;
             }
-            return cell;
+            else {
+                NoInformationCell *cell = (NoInformationCell *)[tableView dequeueReusableCellWithIdentifier:@"No information"];
+                // when information is loaded
+                cell.ageLabel.text =  ([self.actor.age length]) ? [NSString stringWithFormat:@"Age: %@",self.actor.age] : @"";
+                cell.genderLabel.text = ([self.actor.gender length]) ? [NSString stringWithFormat:@"Gender: %@",self.actor.gender] : @"";
+                if (![self.actor.age length] && ![self.actor.gender length]){
+                    cell.titleLabel.text = @"Sorry we cannot tell anything about the image :((";
+                }
+                return cell;
+            }
         }
+        else return nil;
     }
     
     else {
@@ -149,7 +158,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (self.isInformationAvailable) ? 4 : 1;
+    if (self.isInformationAvailable){
+        if (self.isInformationEnough) return 4;
+        return 1;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
