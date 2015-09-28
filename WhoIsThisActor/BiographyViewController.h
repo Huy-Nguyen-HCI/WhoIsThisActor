@@ -11,5 +11,6 @@
 @interface BiographyViewController : UIViewController
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *biography;
+@property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (nonatomic) UIImage *image;
 @end

@@ -25,6 +25,7 @@
     self.detail.text = self.biography;
     [self.detail.layer setBorderColor:[[UIColor blackColor] CGColor]];
     [self.detail setSelectedRange:NSMakeRange(0, 0)];
+
 }
 
 - (IBAction)goBack:(UIButton *)sender {
