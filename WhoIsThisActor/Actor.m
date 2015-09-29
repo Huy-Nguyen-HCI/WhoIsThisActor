@@ -16,7 +16,7 @@
 - (NSMutableArray *)listOfMovies
 {
     if (!_listOfMovies)
-        _listOfMovies = [NSMutableArray array];
+        _listOfMovies = [[NSMutableArray alloc] init];
     return _listOfMovies;
 }
 
@@ -39,7 +39,7 @@
                                                                     error:&errorjson];
     NSArray      *data          =  [jsonDict    valueForKey:@"results"];
     NSArray     *actorid           = [data valueForKey:@"id"];
-    self.listOfMovies  = [data valueForKey:@"known_for"];
+    //self.listOfMovies  = [data valueForKey:@"known_for"];
     NSLog(@"The content of arry is %@",[data valueForKey:@"known_for"]);
     
     
