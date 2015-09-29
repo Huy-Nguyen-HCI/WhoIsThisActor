@@ -11,13 +11,14 @@
 @implementation Actor
 
 // count the number of info available (to be displayed in ResultTableView)
-- (NSMutableArray *)availableInformation
-{
-    if (!_availableInformation)
-        _availableInformation = [[NSMutableArray alloc] init];
-    return _availableInformation;
-}
 
+
+- (NSMutableArray *)listOfMovies
+{
+    if (!_listOfMovies)
+        _listOfMovies = [NSMutableArray array];
+    return _listOfMovies;
+}
 
 - (void)getActorInformation
 {
@@ -62,6 +63,10 @@
     
     // self.moviedb_information = responseString;
     
+    /****************
+     LOAD ALL MOVES INTO self.listOfMovies
+     */
+    
 }
 
 
@@ -105,31 +110,24 @@
 {
     // extract name
     self.name = [self extractInformationWithTitle:@"name"];
-    if ([self.name length]) [self.availableInformation addObject:self.name];
     
     // extract age
     self.age = [self extractInformationWithTitle:@"ageRange"];
-    if ([self.age length]) [self.availableInformation addObject:self.age];
     
     // extract gender
     self.gender = [self.information containsString:@"FEMALE"] ? @"FEMALE" : [self.information containsString:@"MALE"] ? @"MALE" : @"";
-    if ([self.gender length]) [self.availableInformation addObject:self.age];
     
     // extract dbpedia
     self.dbpedia = [self extractInformationWithTitle:@"dbpedia"];
-    if ([self.dbpedia length]) [self.availableInformation addObject:self.age];
     
     // extract freebase
     self.freebase = [self extractInformationWithTitle:@"freebase"];
-    if ([self.freebase length]) [self.availableInformation addObject:self.age];
     
     // extract opencyc
     self.opencyc = [self extractInformationWithTitle:@"opencyc"];
-    if ([self.opencyc length]) [self.availableInformation addObject:self.age];
     
     // extract yago
     self.yago = [self extractInformationWithTitle:@"yago"];
-    if ([self.yago length]) [self.availableInformation addObject:self.age];
     
 }
 

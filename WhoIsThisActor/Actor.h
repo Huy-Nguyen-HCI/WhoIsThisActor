@@ -26,8 +26,7 @@
 @property (nonatomic, strong) NSArray *knownfor;
 @property (nonatomic, strong) NSString *yago;
 @property (nonatomic, strong) UIImage *image;
-
-@property (nonatomic, strong) NSMutableArray *availableInformation;
+@property (nonatomic, strong) NSMutableArray *listOfMovies;
 
 - (void)getImageInformation;
 - (void)getActorInformation;

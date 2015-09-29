@@ -18,6 +18,7 @@
 		003E50391B9C122F005C5426 /* WhoIsThisActorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 003E50381B9C122F005C5426 /* WhoIsThisActorTests.m */; };
 		005813D31BB781A800F7DCD7 /* BiographyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005813D21BB781A800F7DCD7 /* BiographyViewController.m */; settings = {ASSET_TAGS = (); }; };
 		005813D61BB78A2900F7DCD7 /* NoInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005813D51BB78A2900F7DCD7 /* NoInformationCell.m */; settings = {ASSET_TAGS = (); }; };
+		00A9E0DB1BBA33BB004838A7 /* ListOfMovies.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A9E0DA1BBA33BB004838A7 /* ListOfMovies.m */; settings = {ASSET_TAGS = (); }; };
 		00DD74C91BB0EEF400E48457 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DD74C81BB0EEF400E48457 /* button.png */; settings = {ASSET_TAGS = (); }; };
 		00EDE2D81BA24E9100D56174 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EDE2D71BA24E9100D56174 /* Actor.m */; };
 		398F0E661BB9B3C9000F53C4 /* Design2.png in Resources */ = {isa = PBXBuildFile; fileRef = 398F0E651BB9B3C9000F53C4 /* Design2.png */; settings = {ASSET_TAGS = (); }; };
@@ -56,6 +57,8 @@
 		005813D21BB781A800F7DCD7 /* BiographyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiographyViewController.m; sourceTree = "<group>"; };
 		005813D41BB78A2900F7DCD7 /* NoInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoInformationCell.h; sourceTree = "<group>"; };
 		005813D51BB78A2900F7DCD7 /* NoInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoInformationCell.m; sourceTree = "<group>"; };
+		00A9E0D91BBA33BB004838A7 /* ListOfMovies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfMovies.h; sourceTree = "<group>"; };
+		00A9E0DA1BBA33BB004838A7 /* ListOfMovies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfMovies.m; sourceTree = "<group>"; };
 		00DD74C81BB0EEF400E48457 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		00EDE2D61BA24E9100D56174 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		00EDE2D71BA24E9100D56174 /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				005813D21BB781A800F7DCD7 /* BiographyViewController.m */,
 				005813D41BB78A2900F7DCD7 /* NoInformationCell.h */,
 				005813D51BB78A2900F7DCD7 /* NoInformationCell.m */,
+				00A9E0D91BBA33BB004838A7 /* ListOfMovies.h */,
+				00A9E0DA1BBA33BB004838A7 /* ListOfMovies.m */,
 			);
 			path = WhoIsThisActor;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				00EDE2D81BA24E9100D56174 /* Actor.m in Sources */,
 				003E50221B9C122F005C5426 /* AppDelegate.m in Sources */,
 				003E501F1B9C122F005C5426 /* main.m in Sources */,
+				00A9E0DB1BBA33BB004838A7 /* ListOfMovies.m in Sources */,
 				0028A8481BAC650400E689EE /* ResultTableViewController.m in Sources */,
 				005813D31BB781A800F7DCD7 /* BiographyViewController.m in Sources */,
 			);

@@ -10,6 +10,7 @@
 #import "ResultCell.h"
 #import "BiographyViewController.h"
 #import "NoInformationCell.h"
+#import "ListOfMovies.h"
 
 
 @interface ResultTableViewController ()
@@ -113,15 +114,12 @@
                 return cell;
             }
             else {
-                //NSLog(@"good here?");
                 NoInformationCell *cell = (NoInformationCell *)[tableView dequeueReusableCellWithIdentifier:@"No information"];
                 // when information is loaded
                 cell.ageLabel.text =  ([self.actor.age length]) ? [NSString stringWithFormat:@"Age: %@",self.actor.age] : @"";
                 cell.genderLabel.text = ([self.actor.gender length]) ? [NSString stringWithFormat:@"Gender: %@",self.actor.gender] : @"";
-                //NSLog(@"and here?");
                 if (![self.actor.age length] && ![self.actor.gender length]){
                     cell.titleLabel.text = @"Sorry we cannot tell anything about the image :((";
-                    //NSLog(@"and here too?");
                 }
                 return cell;
             }
@@ -134,26 +132,29 @@
         switch(indexPath.row){
             case 1:
                 cell.textLabel.text = @"Biography";
-                NSLog(@"good here?");
                 cell.detailTextLabel.text = self.actor.biography;
-                NSLog(@"and here?");
                 if (self.isInformationAvailable) cell.accessoryType = UITableViewCellAccessoryDetailButton;
                 break;
             
             case 2:
-                NSLog(@"and here too?");
                 cell.textLabel.text = @"Birthday";
                 cell.detailTextLabel.text = self.actor.birthday;
-                NSLog(@"how bout here too?");
                 break;
             
             case 3:
-                NSLog(@"checking");
                 cell.textLabel.text = @"Place of Birth";
                 cell.detailTextLabel.text = self.actor.place_of_birth;
-                NSLog(@"checkingggg");
                 break;
-            
+            case 4:
+                cell.textLabel.text = @"List of movies";
+                if ([self.actor.listOfMovies count]){
+                    cell.detailTextLabel.text = @"Click for more details ☞";
+                    cell.accessoryType = UITableViewCellAccessoryDetailButton;
+                }
+                else {
+                    cell.detailTextLabel.text = @"No information";
+                }
+                break;
             default:
                 break;
         }
@@ -170,7 +171,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.isInformationAvailable){
-        if (self.isInformationEnough) return 4;
+        if (self.isInformationEnough) return 5;
         return 1;
     }
     return 0;
@@ -183,13 +184,19 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    if (indexPath.row != 1) return;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    BiographyViewController *bio = (BiographyViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Biography"];
-    bio.image = self.realImage;
-    bio.biography = self.actor.biography;
-    bio.name = self.actor.name;
-    [self presentViewController:bio animated:YES completion:nil];
+    if (indexPath.row == 1){
+        BiographyViewController *bio = (BiographyViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Biography"];
+        bio.image = self.realImage;
+        bio.biography = self.actor.biography;
+        bio.name = self.actor.name;
+        [self presentViewController:bio animated:YES completion:nil];
+    }
+    else if (indexPath.row == 4){
+        ListOfMovies *list = (ListOfMovies *)[storyboard instantiateViewControllerWithIdentifier:@"List of movies"];
+        list.listOfMovies = self.actor.listOfMovies;
+        [self presentViewController:list animated:YES completion:nil];
+    }
 }
 
 - (IBAction)goBack:(UIButton *)sender
