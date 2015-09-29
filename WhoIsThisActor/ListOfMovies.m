@@ -34,7 +34,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Movie" forIndexPath:indexPath];
-    cell.textLabel.text = self.listOfMovies[indexPath.row];
+    cell.textLabel.text = [[self.listOfMovies objectAtIndex:indexPath.row] valueForKey:@"original_title"];
     return cell;
 }
 

@@ -39,8 +39,8 @@
                                                                     error:&errorjson];
     NSArray      *data          =  [jsonDict    valueForKey:@"results"];
     NSArray     *actorid           = [data valueForKey:@"id"];
-    self.knownfor  = [data valueForKey:@"known_for"];
-    
+    self.listOfMovies  = [data valueForKey:@"known_for"];
+    NSLog(@"The content of arry is %@",[data valueForKey:@"known_for"]);
     
     
     urlString = [NSString stringWithFormat:@"http://api.themoviedb.org/3/person/%@?api_key=54980fde8616b9217bd8c4401c70a975",[actorid     objectAtIndex:0]];
