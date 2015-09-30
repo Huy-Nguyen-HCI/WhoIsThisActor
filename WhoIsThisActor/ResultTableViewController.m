@@ -195,6 +195,8 @@
     else if (indexPath.row == 4){
         ListOfMovies *list = (ListOfMovies *)[storyboard instantiateViewControllerWithIdentifier:@"List of movies"];
         list.listOfMovieTitles = self.actor.listOfMovieTitles;
+        list.listOfMoviePosters = self.actor.listOfMoviePosters;
+        list.listOfMovieDescriptions = self.actor.listOfMovieDescriptions;
         [self presentViewController:list animated:YES completion:nil];
     }
 }

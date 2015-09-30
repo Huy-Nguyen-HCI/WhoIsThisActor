@@ -10,4 +10,6 @@
 
 @interface ListOfMovies : UITableViewController
 @property (nonatomic, strong) NSArray *listOfMovieTitles;
+@property (nonatomic, strong) NSArray *listOfMoviePosters;
+@property (nonatomic, strong) NSArray *listOfMovieDescriptions;
 @end

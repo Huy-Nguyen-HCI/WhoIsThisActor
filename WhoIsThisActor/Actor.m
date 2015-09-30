@@ -34,6 +34,8 @@
     NSArray      *data          =  [jsonDict    valueForKey:@"results"];
     NSArray     *actorid           = [data valueForKey:@"id"];
     self.listOfMovieTitles  = [[[data valueForKey:@"known_for"] objectAtIndex:0] valueForKey:@"original_title"];
+    self.listOfMoviePosters  = [[[data valueForKey:@"known_for"] objectAtIndex:0] valueForKey:@"backdrop_path"];
+    self.listOfMovieDescriptions  = [[[data valueForKey:@"known_for"] objectAtIndex:0] valueForKey:@"overview"];
     
     
     urlString = [NSString stringWithFormat:@"http://api.themoviedb.org/3/person/%@?api_key=54980fde8616b9217bd8c4401c70a975",[actorid     objectAtIndex:0]];
