@@ -13,12 +13,6 @@
 // count the number of info available (to be displayed in ResultTableView)
 
 
-- (NSMutableArray *)listOfMovies
-{
-    if (!_listOfMovieTitles)
-        _listOfMovieTitles = [[NSMutableArray alloc] init];
-    return _listOfMovieTitles;
-}
 
 - (void)getActorInformation
 {

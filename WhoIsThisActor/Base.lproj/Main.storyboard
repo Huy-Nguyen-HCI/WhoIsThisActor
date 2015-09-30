@@ -374,12 +374,12 @@
         <scene sceneID="lyx-Ne-Jj4">
             <objects>
                 <tableViewController storyboardIdentifier="List of movies" id="N2T-uV-9oo" customClass="ListOfMovies" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="siA-jO-1Xd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="145" sectionHeaderHeight="28" sectionFooterHeight="28" id="siA-jO-1Xd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xiS-oZ-omO">
-                            <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="173" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Back"/>
                             <connections>
@@ -387,22 +387,49 @@
                             </connections>
                         </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Movie" textLabel="AoU-fP-ATd" style="IBUITableViewCellStyleDefault" id="QwM-Bq-nJn">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Movie" rowHeight="145" id="QwM-Bq-nJn" customClass="MovieCell">
+                                <rect key="frame" x="0.0" y="28" width="600" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QwM-Bq-nJn" id="r6A-kg-0J3">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AoU-fP-ATd">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxl-v9-Pay">
+                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fHs-3h-1TQ">
+                                            <rect key="frame" x="8" y="37" width="291" height="99"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="abcd" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bdq-0F-hiT">
+                                            <rect key="frame" x="307" y="37" width="285" height="99"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="285" id="EhO-bd-vst"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Cxl-v9-Pay" firstAttribute="top" secondItem="r6A-kg-0J3" secondAttribute="topMargin" id="6oy-bk-eUC"/>
+                                        <constraint firstItem="fHs-3h-1TQ" firstAttribute="bottom" secondItem="r6A-kg-0J3" secondAttribute="bottomMargin" id="78N-li-hTV"/>
+                                        <constraint firstItem="Cxl-v9-Pay" firstAttribute="leading" secondItem="fHs-3h-1TQ" secondAttribute="leading" id="PBp-wU-5DF"/>
+                                        <constraint firstItem="Cxl-v9-Pay" firstAttribute="trailing" secondItem="bdq-0F-hiT" secondAttribute="trailing" id="Vny-Ut-2FD"/>
+                                        <constraint firstItem="bdq-0F-hiT" firstAttribute="trailing" secondItem="r6A-kg-0J3" secondAttribute="trailingMargin" id="Ybp-Ab-I9J"/>
+                                        <constraint firstItem="fHs-3h-1TQ" firstAttribute="leading" secondItem="r6A-kg-0J3" secondAttribute="leadingMargin" id="ZBM-Rl-kev"/>
+                                        <constraint firstItem="bdq-0F-hiT" firstAttribute="bottom" secondItem="fHs-3h-1TQ" secondAttribute="bottom" id="cd0-pr-5QJ"/>
+                                        <constraint firstItem="bdq-0F-hiT" firstAttribute="leading" secondItem="fHs-3h-1TQ" secondAttribute="trailing" constant="8" symbolic="YES" id="hAS-gw-1Bf"/>
+                                        <constraint firstItem="bdq-0F-hiT" firstAttribute="top" secondItem="fHs-3h-1TQ" secondAttribute="top" id="lBJ-bD-rl0"/>
+                                        <constraint firstItem="fHs-3h-1TQ" firstAttribute="top" secondItem="Cxl-v9-Pay" secondAttribute="bottom" constant="8" symbolic="YES" id="rav-R4-rZl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionView" destination="bdq-0F-hiT" id="TMG-JD-aav"/>
+                                    <outlet property="posterView" destination="fHs-3h-1TQ" id="Uc8-jK-bro"/>
+                                    <outlet property="titleLabel" destination="Cxl-v9-Pay" id="znp-Ow-0VP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

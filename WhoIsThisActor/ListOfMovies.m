@@ -7,7 +7,7 @@
 //
 
 #import "ListOfMovies.h"
-
+#import "MovieCell.h"
 @interface ListOfMovies ()
 
 @end
@@ -22,19 +22,17 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return [self.listOfMovieTitles count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Movie" forIndexPath:indexPath];
-    cell.textLabel.text = [self.listOfMovieTitles objectAtIndex:indexPath.row];
+     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:@"Movie" forIndexPath:indexPath];
+    cell.titleLabel.text = [self.listOfMovieTitles objectAtIndex:indexPath.row];
     return cell;
 }
 

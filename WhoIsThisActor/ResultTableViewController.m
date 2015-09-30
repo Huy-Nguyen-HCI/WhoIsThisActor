@@ -147,7 +147,7 @@
                 break;
             case 4:
                 cell.textLabel.text = @"List of movies";
-                if ([self.actor.listOfMovies count]){
+                if ([self.actor.listOfMovieTitles count]){
                     cell.detailTextLabel.text = @"Click for more details ☞";
                     cell.accessoryType = UITableViewCellAccessoryDetailButton;
                 }
@@ -194,7 +194,7 @@
     }
     else if (indexPath.row == 4){
         ListOfMovies *list = (ListOfMovies *)[storyboard instantiateViewControllerWithIdentifier:@"List of movies"];
-        list.listOfMovies = self.actor.listOfMovies;
+        list.listOfMovieTitles = self.actor.listOfMovieTitles;
         [self presentViewController:list animated:YES completion:nil];
     }
 }
