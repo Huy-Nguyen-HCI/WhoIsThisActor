@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ListOfMovies : UITableViewController
-@property (nonatomic, strong) NSArray *listOfMovies;
+@property (nonatomic, strong) NSArray *listOfMovieTitles;
 @end

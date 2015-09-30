@@ -15,9 +15,9 @@
 
 - (NSMutableArray *)listOfMovies
 {
-    if (!_listOfMovies)
-        _listOfMovies = [[NSMutableArray alloc] init];
-    return _listOfMovies;
+    if (!_listOfMovieTitles)
+        _listOfMovieTitles = [[NSMutableArray alloc] init];
+    return _listOfMovieTitles;
 }
 
 - (void)getActorInformation
@@ -39,8 +39,7 @@
                                                                     error:&errorjson];
     NSArray      *data          =  [jsonDict    valueForKey:@"results"];
     NSArray     *actorid           = [data valueForKey:@"id"];
-    //self.listOfMovies  = [data valueForKey:@"known_for"];
-    NSLog(@"The content of arry is %@",[data valueForKey:@"known_for"]);
+    self.listOfMovieTitles  = [[[data valueForKey:@"known_for"] objectAtIndex:0] valueForKey:@"original_title"];
     
     
     urlString = [NSString stringWithFormat:@"http://api.themoviedb.org/3/person/%@?api_key=54980fde8616b9217bd8c4401c70a975",[actorid     objectAtIndex:0]];

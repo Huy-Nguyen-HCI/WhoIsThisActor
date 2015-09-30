@@ -28,13 +28,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return [self.listOfMovies count];
+    return [self.listOfMovieTitles count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Movie" forIndexPath:indexPath];
-    cell.textLabel.text = [[self.listOfMovies objectAtIndex:indexPath.row] valueForKey:@"original_title"];
+    cell.textLabel.text = [self.listOfMovieTitles objectAtIndex:indexPath.row];
     return cell;
 }
 
