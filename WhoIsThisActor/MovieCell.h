@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MovieCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *posterView;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionView;@end
+@property (nonatomic) UIImage *posterImage;
+@property (nonatomic) NSString *titleText;
+@property (nonatomic) NSString *descriptionText;
+@end

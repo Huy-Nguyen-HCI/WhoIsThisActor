@@ -95,6 +95,7 @@
                 cell.nameLabel.text = self.actor.name;
                 cell.imageView.image = self.actor.image;
                 cell.imageView.backgroundColor = [UIColor clearColor];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
                 
                 NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.actor.imageurl]];
@@ -133,7 +134,8 @@
             case 1:
                 cell.textLabel.text = @"Biography";
                 cell.detailTextLabel.text = self.actor.biography;
-                if (self.isInformationAvailable) cell.accessoryType = UITableViewCellAccessoryDetailButton;
+                if (self.isInformationAvailable && ![self.actor.biography isEqualToString:@"Not Found"])
+                    cell.accessoryType = UITableViewCellAccessoryDetailButton;
                 break;
             
             case 2:
@@ -146,7 +148,7 @@
                 cell.detailTextLabel.text = self.actor.place_of_birth;
                 break;
             case 4:
-                cell.textLabel.text = @"List of movies";
+                cell.textLabel.text = @"Suggested Movies";
                 if ([self.actor.listOfMovieTitles count]){
                     cell.detailTextLabel.text = @"Click for more details ☞";
                     cell.accessoryType = UITableViewCellAccessoryDetailButton;
@@ -181,6 +183,8 @@
 {
     return (indexPath.row == 0) ? 320 : 50;
 }
+
+
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath
 {

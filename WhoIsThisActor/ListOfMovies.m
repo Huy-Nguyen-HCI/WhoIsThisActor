@@ -14,6 +14,12 @@
 
 @implementation ListOfMovies
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+}
+
 - (IBAction)goBack:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -32,13 +38,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:@"Movie" forIndexPath:indexPath];
-    cell.titleLabel.text = [self.listOfMovieTitles objectAtIndex:indexPath.row];
-    cell.descriptionView.text = [self.listOfMovieDescriptions objectAtIndex:indexPath.row];
+    cell.titleText = [self.listOfMovieTitles objectAtIndex:indexPath.row];
+    cell.descriptionText = [self.listOfMovieDescriptions objectAtIndex:indexPath.row];
     
     
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w180_and_h180_bestv2%@",[self.listOfMoviePosters objectAtIndex:indexPath.row]]]];
-    cell.posterView.image = [UIImage imageWithData: imageData];
+    cell.posterImage = [UIImage imageWithData: imageData];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+
+{
+    return @"Here are the movies!";
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 

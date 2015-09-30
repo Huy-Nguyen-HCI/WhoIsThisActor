@@ -23,7 +23,8 @@
     self.actorName.text = self.name;
     self.imageView.image = self.image;
     self.detail.text = self.biography;
-    [self.detail.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    self.detail.layer.borderWidth = 3.0f;
+    self.detail.layer.borderColor = [[UIColor blackColor] CGColor];
     [self.detail setSelectedRange:NSMakeRange(0, 0)];
 
 }

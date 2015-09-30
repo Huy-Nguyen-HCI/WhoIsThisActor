@@ -91,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				003E501B1B9C122F005C5426 /* WhoIsThisActor */,
+				003E501C1B9C122F005C5426 /* Supporting Files */,
 				003E50351B9C122F005C5426 /* WhoIsThisActorTests */,
 				003E501A1B9C122F005C5426 /* Products */,
 			);
@@ -111,21 +112,12 @@
 				003E50231B9C122F005C5426 /* ViewController.h */,
 				003E50241B9C122F005C5426 /* ViewController.m */,
 				003E50261B9C122F005C5426 /* Main.storyboard */,
-				003E501C1B9C122F005C5426 /* Supporting Files */,
 				00EDE2D61BA24E9100D56174 /* Actor.h */,
 				00EDE2D71BA24E9100D56174 /* Actor.m */,
-				0028A8461BAC650400E689EE /* ResultTableViewController.h */,
-				0028A8471BAC650400E689EE /* ResultTableViewController.m */,
-				0028A8491BAC654E00E689EE /* ResultCell.h */,
-				0028A84A1BAC654E00E689EE /* ResultCell.m */,
-				005813D11BB781A800F7DCD7 /* BiographyViewController.h */,
-				005813D21BB781A800F7DCD7 /* BiographyViewController.m */,
-				005813D41BB78A2900F7DCD7 /* NoInformationCell.h */,
-				005813D51BB78A2900F7DCD7 /* NoInformationCell.m */,
-				00A9E0D91BBA33BB004838A7 /* ListOfMovies.h */,
-				00A9E0DA1BBA33BB004838A7 /* ListOfMovies.m */,
-				00D8E14A1BBB833D002F1409 /* MovieCell.h */,
-				00D8E14B1BBB833D002F1409 /* MovieCell.m */,
+				00D8E14E1BBB9ADB002F1409 /* ResultView */,
+				00D8E14F1BBB9AE6002F1409 /* BiographyView */,
+				00D8E14D1BBB9ACC002F1409 /* NoInformation */,
+				00D8E1501BBB9AF1002F1409 /* ListOfMoviesView */,
 			);
 			path = WhoIsThisActor;
 			sourceTree = "<group>";
@@ -144,6 +136,7 @@
 				003E501E1B9C122F005C5426 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = WhoIsThisActor;
 			sourceTree = "<group>";
 		};
 		003E50351B9C122F005C5426 /* WhoIsThisActorTests */ = {
@@ -161,6 +154,46 @@
 				003E50371B9C122F005C5426 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00D8E14D1BBB9ACC002F1409 /* NoInformation */ = {
+			isa = PBXGroup;
+			children = (
+				005813D41BB78A2900F7DCD7 /* NoInformationCell.h */,
+				005813D51BB78A2900F7DCD7 /* NoInformationCell.m */,
+			);
+			name = NoInformation;
+			sourceTree = "<group>";
+		};
+		00D8E14E1BBB9ADB002F1409 /* ResultView */ = {
+			isa = PBXGroup;
+			children = (
+				0028A8461BAC650400E689EE /* ResultTableViewController.h */,
+				0028A8471BAC650400E689EE /* ResultTableViewController.m */,
+				0028A8491BAC654E00E689EE /* ResultCell.h */,
+				0028A84A1BAC654E00E689EE /* ResultCell.m */,
+			);
+			name = ResultView;
+			sourceTree = "<group>";
+		};
+		00D8E14F1BBB9AE6002F1409 /* BiographyView */ = {
+			isa = PBXGroup;
+			children = (
+				005813D11BB781A800F7DCD7 /* BiographyViewController.h */,
+				005813D21BB781A800F7DCD7 /* BiographyViewController.m */,
+			);
+			name = BiographyView;
+			sourceTree = "<group>";
+		};
+		00D8E1501BBB9AF1002F1409 /* ListOfMoviesView */ = {
+			isa = PBXGroup;
+			children = (
+				00A9E0D91BBA33BB004838A7 /* ListOfMovies.h */,
+				00A9E0DA1BBA33BB004838A7 /* ListOfMovies.m */,
+				00D8E14A1BBB833D002F1409 /* MovieCell.h */,
+				00D8E14B1BBB833D002F1409 /* MovieCell.m */,
+			);
+			name = ListOfMoviesView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
