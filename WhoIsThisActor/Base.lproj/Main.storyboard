@@ -359,6 +359,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="actorName" destination="13v-8a-wl6" id="6fa-6p-7rc"/>
                         <outlet property="detail" destination="9lj-E9-jys" id="bC5-Oo-EJU"/>
@@ -394,16 +395,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxl-v9-Pay">
-                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fHs-3h-1TQ">
-                                            <rect key="frame" x="8" y="37" width="291" height="99"/>
+                                            <rect key="frame" x="8" y="37" width="66" height="99"/>
+                                            <color key="backgroundColor" red="0.31228298611111116" green="0.31228298611111116" blue="0.31228298611111116" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="fHs-3h-1TQ" secondAttribute="height" multiplier="2:3" id="XBW-K2-ZIm"/>
+                                            </constraints>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="abcd" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bdq-0F-hiT">
-                                            <rect key="frame" x="307" y="37" width="285" height="99"/>
+                                            <rect key="frame" x="82" y="37" width="285" height="99"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="285" id="EhO-bd-vst"/>
                                             </constraints>
@@ -436,6 +441,7 @@
                             <outlet property="delegate" destination="N2T-uV-9oo" id="1ks-lf-9Md"/>
                         </connections>
                     </tableView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yQ-Eh-TO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
