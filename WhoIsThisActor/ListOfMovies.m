@@ -44,6 +44,7 @@
     
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w180_and_h180_bestv2%@",[self.listOfMoviePosters objectAtIndex:indexPath.row]]]];
     cell.posterImage = [UIImage imageWithData: imageData];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
