@@ -14,14 +14,29 @@
 
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-//@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
+@property (nonatomic) UIImageView *takePhoto;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 @property (strong, nonatomic) NSString *information;
 @end
 
 @implementation ViewController
 
+- (UIImageView *)takePhoto
+{
+    if (!_takePhoto){
+        CGRect frame = self.view.frame;
+        CGFloat size = frame.size.width/2;
+        CGPoint center = CGPointMake(frame.size.width/2, frame.size.height/2);
+        _takePhoto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Button2.png"]];
+        _takePhoto.frame = CGRectMake(center.x - size/2, center.y - size/2, size, size);
+        _takePhoto.layer.cornerRadius = 5.0;
+        _takePhoto.layer.masksToBounds = YES;
+        _takePhoto.userInteractionEnabled = YES;
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takePicture)];
+        [_takePhoto addGestureRecognizer:gesture];
+    }
+    return _takePhoto;
+}
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -31,9 +46,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view addSubview:self.takePhoto];
     [self setNeedsStatusBarAppearanceUpdate];
-    self.takePhotoButton.layer.cornerRadius = 5.0;
-    self.takePhotoButton.layer.masksToBounds = YES;
     self.selectButton.layer.cornerRadius = 5.0;
     self.selectButton.layer.masksToBounds = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
@@ -51,7 +65,7 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (IBAction)takePicture:(UIButton *)sender
+- (void)takePicture
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;

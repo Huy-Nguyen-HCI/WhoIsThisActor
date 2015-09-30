@@ -22,6 +22,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Design2.png" translatesAutoresizingMaskIntoConstraints="NO" id="m41-eU-79u">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-Rb-eGg">
+                                <rect key="frame" x="20" y="515" width="560" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="R4z-lP-gLF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.8784313725490196" green="0.5490196078431373" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLICK TO REVEAL THE ACTOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEJ-oH-XtR">
+                                <rect key="frame" x="20" y="28" width="560" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aH6-Xy-GGW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-b3-j5I">
                                 <rect key="frame" x="20" y="548" width="560" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -32,72 +50,26 @@
                                     <action selector="selectPicture:" destination="Y54-fn-GJf" eventType="touchUpInside" id="cDq-y7-sg2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-Rb-eGg">
-                                <rect key="frame" x="20" y="515" width="560" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="R4z-lP-gLF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.8784313725490196" green="0.5490196078431373" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-7Q-6E3">
-                                <rect key="frame" x="175" y="175" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="jxX-yX-Ti6"/>
-                                    <constraint firstAttribute="height" constant="263" id="nIm-v9-5Xo"/>
-                                    <constraint firstAttribute="width" constant="279" id="qup-iX-lwx"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="Button2.png"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="nIm-v9-5Xo"/>
-                                        <exclude reference="qup-iX-lwx"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="takePicture:" destination="Y54-fn-GJf" eventType="touchUpInside" id="lZF-kY-N9h"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLICK TO REVEAL THE ACTOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEJ-oH-XtR">
-                                <rect key="frame" x="20" y="28" width="560" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="1" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bpy-Rb-eGg" firstAttribute="top" secondItem="c2e-7Q-6E3" secondAttribute="bottom" constant="78" id="2Pl-zw-EMo"/>
                             <constraint firstItem="m41-eU-79u" firstAttribute="bottom" secondItem="gQw-LD-IET" secondAttribute="top" id="6XJ-Sn-Sf4"/>
                             <constraint firstItem="NbB-b3-j5I" firstAttribute="top" secondItem="bpy-Rb-eGg" secondAttribute="bottom" constant="8" symbolic="YES" id="70D-5e-o8s"/>
-                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="trailing" secondItem="bpy-Rb-eGg" secondAttribute="trailing" id="8Q9-ok-71u"/>
-                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="leading" secondItem="bpy-Rb-eGg" secondAttribute="leading" id="9DH-Sf-XZa"/>
-                            <constraint firstItem="m41-eU-79u" firstAttribute="centerY" secondItem="c2e-7Q-6E3" secondAttribute="centerY" id="9OJ-xM-z3E"/>
-                            <constraint firstItem="c2e-7Q-6E3" firstAttribute="width" secondItem="m41-eU-79u" secondAttribute="height" multiplier="5:12" id="PRh-Df-r14"/>
+                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="trailing" secondItem="bpy-Rb-eGg" secondAttribute="trailing" id="Yn1-Mf-Mph"/>
                             <constraint firstItem="m41-eU-79u" firstAttribute="top" secondItem="WLn-Pn-Rtw" secondAttribute="top" id="ZDh-NM-U48"/>
-                            <constraint firstItem="c2e-7Q-6E3" firstAttribute="centerX" secondItem="bpy-Rb-eGg" secondAttribute="centerX" id="ZpE-vf-4zZ"/>
-                            <constraint firstItem="bpy-Rb-eGg" firstAttribute="top" secondItem="c2e-7Q-6E3" secondAttribute="bottom" constant="90" id="b2V-zl-xLA"/>
+                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="leading" secondItem="bpy-Rb-eGg" secondAttribute="leading" id="ZSn-SB-ro1"/>
                             <constraint firstItem="m41-eU-79u" firstAttribute="leading" secondItem="WLn-Pn-Rtw" secondAttribute="leading" id="cIJ-C0-Yho"/>
+                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="top" secondItem="lXH-hT-vaj" secondAttribute="bottom" constant="8" symbolic="YES" id="duP-bR-xk0"/>
                             <constraint firstItem="NbB-b3-j5I" firstAttribute="centerX" secondItem="m41-eU-79u" secondAttribute="centerX" id="e0H-KH-pnj"/>
-                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="top" secondItem="lXH-hT-vaj" secondAttribute="bottom" constant="8" symbolic="YES" id="euw-BI-S7f"/>
                             <constraint firstAttribute="trailing" secondItem="m41-eU-79u" secondAttribute="trailing" id="gTO-5t-7NR"/>
                             <constraint firstItem="bpy-Rb-eGg" firstAttribute="leading" secondItem="NbB-b3-j5I" secondAttribute="leading" id="geb-p8-wDb"/>
                             <constraint firstAttribute="bottom" secondItem="NbB-b3-j5I" secondAttribute="bottom" constant="20" symbolic="YES" id="iE3-rk-jth"/>
-                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="leading" secondItem="WLn-Pn-Rtw" secondAttribute="leadingMargin" id="r33-PF-p6u"/>
+                            <constraint firstItem="OEJ-oH-XtR" firstAttribute="leading" secondItem="WLn-Pn-Rtw" secondAttribute="leadingMargin" id="rTI-e5-ThC"/>
                             <constraint firstItem="bpy-Rb-eGg" firstAttribute="trailing" secondItem="NbB-b3-j5I" secondAttribute="trailing" id="rYq-oq-gTx"/>
-                            <constraint firstItem="c2e-7Q-6E3" firstAttribute="top" secondItem="OEJ-oH-XtR" secondAttribute="bottom" constant="97" id="st5-Uh-fL4"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="PRh-Df-r14"/>
-                                <exclude reference="2Pl-zw-EMo"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="selectButton" destination="NbB-b3-j5I" id="FyU-yy-ijA"/>
-                        <outlet property="takePhotoButton" destination="c2e-7Q-6E3" id="Jd0-oT-Eqb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIr-Rn-kZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
