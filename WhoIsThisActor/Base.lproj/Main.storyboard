@@ -355,6 +355,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="actorName" destination="13v-8a-wl6" id="6fa-6p-7rc"/>
                         <outlet property="detail" destination="9lj-E9-jys" id="bC5-Oo-EJU"/>
@@ -396,6 +397,7 @@
                             <outlet property="delegate" destination="N2T-uV-9oo" id="1ks-lf-9Md"/>
                         </connections>
                     </tableView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yQ-Eh-TO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
